@@ -1,42 +1,39 @@
-# 🚀 Mohamed Refky | Flutter Developer & Mobile App Engineer
+# 🚀 Rania Abdelbary | Architectural Engineer & BIM Specialist
 
-Welcome to the repository of my personal portfolio application! This application is built with Flutter and serves as a digital resume to showcase my professional journey, technical expertise, projects, and services.
+Welcome to the repository of my personal portfolio application! This application is built with Flutter and serves as a digital showcase of my professional journey, architectural designs, BIM coordination expertise, and project execution.
 
-## 👨‍💻 About Me
+## 🏗️ About Me
 
-**Computer Science graduate and Flutter Developer** with hands-on experience building scalable mobile applications. I am passionate about sharing knowledge as a Coding Instructor and continuously growing through professional projects. I specialize in crafting high-performance, cross-platform apps using Flutter, Clean Architecture, and AI integrations (like Gemini LLM).
+**Architectural Engineer & BIM Specialist** with 8+ years of experience across governmental and commercial projects. Specialized in BIM-driven workflows using Revit for coordinated model development, technical documentation, and multidisciplinary integration. Experienced in ISO 19650 information management, 4D/5D BIM processes, and delivering technically compliant solutions in fast-paced environments.
 
 ---
 
 ## 🛠️ Tech Stack & Expertise
 
-* **Mobile Development:** Flutter, Dart, Clean Architecture & MVVM, BLoC / Cubit State Management, Advanced UI & Animations
-* **AI & Backend Integration:** Gemini AI (LLM Integration), REST APIs, Firebase (Auth & Firestore), Python Flask APIs
-* **Database & Storage:** Firestore, Hive, SharedPreferences, Flutter Secure Storage
-* **Software Engineering:** OOP, Design Patterns, SOLID Principles, Git & GitHub
+* **BIM & Digital Tools:** Revit (BIM Modeling & Documentation), Navisworks Manage (Clash Detection), Dynamo (Workflow Automation), Autodesk Construction Cloud (CDE Management), LOD 100–400 Model Development.
+* **4D / 5D & Cost Integration:** Navisworks 4D Construction Simulation, Model-Based BOQ (MBOQ), Quantity Take-Off, 5D BIM Cost Integration.
+* **Design & Visualization:** AutoCAD, 3Ds Max, Corona Renderer, Adobe Photoshop.
+* **Productivity & Management:** ISO 19650 Information Management, BIM Execution Plan (BEP), Common Data Environment (CDE).
 
 ---
 
 ## 📂 Featured Projects
 
-### 🎓 Eduon LMS
-A comprehensive learning platform featuring YouTube API integration, structured roadmaps, and a community hub for tech organizations.
-* **Tech Stack:** Flutter, Dart, YouTube API, Clean Architecture, BLoC.
-* **Source Code:** [GitHub Repository](https://github.com/MohamedRefky/Eduon)
+### 🏫 Nano Building – Faculty of Science, Ain Shams University
+Large-scale academic building developed in collaboration with IBS. Contributed to BIM model development, site coordination, and finishing works supervision.
+* **Technologies:** Revit, Navisworks, AutoCAD, ACC.
 
-### 🍏 Diety App
-An AI-powered fitness assistant using Gemini AI and Machine Learning (Decision Tree) to provide personalized diet plans based on user metrics.
-* **Tech Stack:** Flutter, Gemini AI, Python Flask, Firebase, ML.
-* **Source Code:** [GitHub Repository](https://github.com/MohamedRefky/Diety_app)
+### 🎢 Magic Land Project
+Commercial project executed with Kayan Company. Involved coordination with contractors and stakeholders, site supervision, and BIM-based documentation.
+* **Technologies:** Revit, AutoCAD, Navisworks.
 
----
+### 🏫 Cosmic Village School
+Educational facility in 6th of October City, developed with Mobica. Managed finishing works and coordinated multidisciplinary teams on-site.
+* **Technologies:** Revit, AutoCAD, Navisworks.
 
-## 💼 Experience & Services
-
-* **Mobile App Development:** Building high-performance, cross-platform apps with Flutter, focusing on scalability and user experience.
-* **AI & API Integration:** Integrating LLMs (Gemini), REST APIs, and Firebase to create smart, data-driven applications.
-* **Architecture Design:** Implementing Clean Architecture and SOLID principles to ensure maintainable and testable codebases.
-* **Coding Instruction:** Simplifying complex programming concepts for students as an Instructor at iSchool.
+### 🍽️ MAMINA'S Restaurant – Palm Hills Compound
+Commercial F&B interior architecture project in 6th of October, Cairo. Contributed to design detailing and finishing works management.
+* **Technologies:** Revit, AutoCAD, 3Ds Max, Corona.
 
 ---
 
@@ -46,11 +43,11 @@ To run this portfolio app locally:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/MohamedRefky/Mohamed-Refky-Portfolio.git
+   git clone https://github.com/MohamedRefky/Rania_Portfolio.git
    ```
 2. **Navigate to the directory:**
    ```bash
-   cd Mohamed-Refky-Portfolio
+   cd Rania_Portfolio
    ```
 3. **Install dependencies:**
    ```bash
@@ -67,11 +64,7 @@ To run this portfolio app locally:
 
 Let's connect! Feel free to reach out for collaborations or job opportunities:
 
-* **LinkedIn:** [Mohamed Refky](https://www.linkedin.com/in/mohamedrefky/)
-* **GitHub:** [MohamedRefky](https://github.com/MohamedRefky)
-* **WhatsApp:** [+201019964918](https://wa.me/201019964918)
-* **Email:** [mohamedrifky9765@gmail.com](mailto:mohamedrifky9765@gmail.com)
-
----
-
-⭐️ *If you like this portfolio or find the source code helpful, please give it a star on GitHub!*
+* **LinkedIn:** [Rania Abdelbary](https://www.linkedin.com/in/rania-abdelbary-718b85342)
+* **WhatsApp:** [+201011712614](https://wa.me/201011712614)
+* **Email:** [ranianasr609@gmail.com](mailto:ranianasr609@gmail.com)
+* **Location:** Dubai, United Arab Emirates
