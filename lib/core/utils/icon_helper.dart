@@ -60,9 +60,9 @@ class IconHelper {
       case 'certificate':
         return FontAwesomeIcons.certificate;
       case 'pencilRuler':
-        return FontAwesomeIcons.pencilRuler;
+        return FontAwesomeIcons.penRuler;
       case 'hardHat':
-        return FontAwesomeIcons.hardHat;
+        return FontAwesomeIcons.helmetSafety;
       case 'chartBar':
         return FontAwesomeIcons.chartBar;
       case 'leaf':
