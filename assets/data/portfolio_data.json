@@ -1,0 +1,242 @@
+{
+  "personalInfo": {
+    "name": "Rania Abdelbary Abdelstar",
+    "title": "Architectural Engineer | BIM Specialist",
+    "description": "BIM-focused Architectural Engineer with 8+ years of experience in architectural design, site supervision, and finishing works management.",
+    "about": "Architectural Engineer with 8+ years of experience across governmental and commercial projects. Specialized in BIM-driven workflows using Revit for coordinated model development, technical documentation, and multidisciplinary integration. Experienced in ISO 19650 information management, 4D/5D BIM processes, and delivering technically compliant solutions in fast-paced environments.",
+    "image": "assets/images/rania_image.png",
+    "cv": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/rania-abdelbary-718b85342",
+    "email": "ranianasr609@gmail.com",
+    "whatsappNumber": "+201011712614",
+    "phone": "+971501587005",
+    "location": "Dubai, United Arab Emirates"
+  },
+  "stats": [
+    {
+      "title": "8+",
+      "subtitle": "Years of Experience",
+      "icon": "briefcase"
+    },
+    {
+      "title": "4+",
+      "subtitle": "Major Projects",
+      "icon": "building"
+    },
+    {
+      "title": "LOD 400",
+      "subtitle": "BIM Model Development",
+      "icon": "cube"
+    },
+    {
+      "title": "ISO 19650",
+      "subtitle": "BIM Standards Applied",
+      "icon": "certificate"
+    }
+  ],
+  "services": [
+    {
+      "title": "BIM Modeling & Coordination",
+      "description": "Developing federated BIM models using Revit and coordinating multidisciplinary clashes using Navisworks with full ISO 19650 compliance.",
+      "icon": "cube"
+    },
+    {
+      "title": "Architectural Design & Detailing",
+      "description": "Delivering detailed architectural drawings and technical documentation for governmental and commercial projects.",
+      "icon": "pencilRuler"
+    },
+    {
+      "title": "Site Supervision & Finishing Works",
+      "description": "Managing interior and exterior finishing works, coordinating contractors, consultants, and ensuring quality compliance on-site.",
+      "icon": "hardHat"
+    },
+    {
+      "title": "4D/5D BIM & Cost Integration",
+      "description": "Implementing construction sequencing simulations and integrating BIM models with schedules and cost estimation (BOQ/MBOQ).",
+      "icon": "chartBar"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Architect",
+      "company": "Engineering Authority of the Armed Forces",
+      "period": "Jan 2020 – Present",
+      "description": "Supervised interior and exterior finishing works for large-scale projects. Coordinated between contractors, consultants, and stakeholders. Monitored site progress and maintained compliance with technical specifications. Developed architectural BIM models using Revit and participated in coordination workflows to minimize clashes and rework.",
+      "projects": [
+        "Nano Building, Faculty of Science – Ain Shams University (with IBS)",
+        "Magic Land Project (with Kayan Company)",
+        "Cosmic Village School – 6th of October City (with Mobica)",
+        "MAMINA'S Restaurant – Palm Hills Compound, 6th of October, Cairo"
+      ]
+    },
+    {
+      "title": "Architect",
+      "company": "Norm Architects",
+      "period": "Jul 2019 – Dec 2019",
+      "description": "Assisted in architectural design development and 3D visualization. Produced detailed drawings and presentation materials. Supported coordination between design and execution teams."
+    },
+    {
+      "title": "Architectural Intern",
+      "company": "General Organization for Physical Training",
+      "period": "Jul 2018 – Aug 2018",
+      "description": "Gained practical experience in architectural site training."
+    },
+    {
+      "title": "Site Training Intern",
+      "company": "Arab Contractors (Mqawlon Al-Arab)",
+      "period": "Jul 2017 – Aug 2017",
+      "description": "Gained hands-on experience in site execution and structural works. Assisted engineers in monitoring site activities and reviewing drawings."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Nano Building – Faculty of Science, Ain Shams University",
+      "description": "Large-scale academic building developed in collaboration with IBS. Contributed to BIM model development, site coordination, and finishing works supervision.",
+      "imageUrl": "assets/images/project_nano_building.png",
+      "technologies": ["Revit", "Navisworks", "AutoCAD", "ACC"],
+      "liveUrl": null,
+      "githubUrl": null
+    },
+    {
+      "title": "Magic Land Project",
+      "description": "Commercial project executed with Kayan Company. Involved coordination with contractors and stakeholders, site supervision, and BIM-based documentation.",
+      "imageUrl": "assets/images/project_magic_land.png",
+      "technologies": ["Revit", "AutoCAD", "Navisworks"],
+      "liveUrl": null,
+      "githubUrl": null
+    },
+    {
+      "title": "Cosmic Village School",
+      "description": "Educational facility in 6th of October City, developed with Mobica. Managed finishing works and coordinated multidisciplinary teams on-site.",
+      "imageUrl": "assets/images/project_cosmic_school.png",
+      "technologies": ["Revit", "AutoCAD", "Navisworks"],
+      "liveUrl": null,
+      "githubUrl": null
+    },
+    {
+      "title": "MAMINA'S Restaurant – Palm Hills Compound",
+      "description": "Commercial F&B interior architecture project in 6th of October, Cairo. Contributed to design detailing and finishing works management.",
+      "imageUrl": "assets/images/project_mamina_restaurant.png",
+      "technologies": ["Revit", "AutoCAD", "3Ds Max", "Corona"],
+      "liveUrl": null,
+      "githubUrl": null
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Engineering in Architecture",
+      "university": "Modern Academy for Engineering and Technology",
+      "period": "2014 – 2019",
+      "icon": "graduationCap"
+    }
+  ],
+  "certificates": [
+    {
+      "title": "Revit Architecture Course",
+      "platform": "Jelecom",
+      "date": "2018",
+      "icon": "cube"
+    },
+    {
+      "title": "3Ds Max Architecture Design Training",
+      "platform": "MTC",
+      "date": "2017",
+      "icon": "cube"
+    },
+    {
+      "title": "Seminars on Sustainable Design",
+      "platform": "",
+      "date": "2018",
+      "icon": "leaf"
+    },
+    {
+      "title": "Architectural BIM Diploma",
+      "platform": "KAITECH Academy",
+      "date": "",
+      "icon": "graduationCap"
+    }
+  ],
+  "expertise": [
+    { "name": "Revit", "icon": "cube" },
+    { "name": "AutoCAD", "icon": "pencilRuler" },
+    { "name": "Navisworks", "icon": "layerGroup" },
+    { "name": "3Ds Max", "icon": "cube" },
+    { "name": "Dynamo", "icon": "bolt" },
+    { "name": "Autodesk Construction Cloud (ACC)", "icon": "cloud" },
+    { "name": "Corona Renderer", "icon": "sun" },
+    { "name": "Photoshop", "icon": "image" }
+  ],
+  "expertiseDetails": [
+    { "title": "BIM Modeling & Documentation", "desc": "Advanced Revit modeling, LOD 100–400 development, BEP preparation and implementation.", "icon": "cube" },
+    { "title": "Clash Detection & Coordination", "desc": "Federated model coordination using Navisworks, categorizing Hard/Soft/Workflow clashes, issuing coordination reports.", "icon": "layerGroup" },
+    { "title": "4D/5D BIM Integration", "desc": "Construction sequencing simulations and cost integration with model-based BOQ (MBOQ) and quantity take-off.", "icon": "chartBar" },
+    { "title": "ISO 19650 Compliance", "desc": "Structured project information, naming conventions, version control, and document approval workflows per BIM standards.", "icon": "certificate" },
+    { "title": "Site Supervision", "desc": "Managing finishing works, resolving on-site technical issues, and maintaining quality standards.", "icon": "hardHat" },
+    { "title": "3D Visualization", "desc": "High-quality architectural renders and presentation materials using 3Ds Max and Corona.", "icon": "eye" }
+  ],
+  "techStack": [
+    {
+      "title": "BIM & Digital Tools",
+      "icon": "cube",
+      "skills": [
+        "Revit (BIM Modeling & Documentation)",
+        "Navisworks Manage (Clash Detection)",
+        "Dynamo (Workflow Automation)",
+        "Autodesk Construction Cloud (CDE Management)",
+        "LOD 100–400 Model Development"
+      ]
+    },
+    {
+      "title": "4D / 5D & Cost Integration",
+      "icon": "chartBar",
+      "skills": [
+        "Navisworks 4D Construction Simulation",
+        "Model-Based BOQ (MBOQ)",
+        "Quantity Take-Off",
+        "5D BIM Cost Integration"
+      ]
+    },
+    {
+      "title": "Design & Visualization",
+      "icon": "pencilRuler",
+      "skills": [
+        "AutoCAD",
+        "3Ds Max",
+        "Corona Renderer",
+        "Adobe Photoshop"
+      ]
+    },
+    {
+      "title": "Productivity & Management",
+      "icon": "briefcase",
+      "skills": [
+        "Microsoft Word, Excel, PowerPoint",
+        "ISO 19650 Information Management",
+        "BIM Execution Plan (BEP)",
+        "Common Data Environment (CDE)"
+      ]
+    }
+  ],
+  "languages": [
+    { "language": "Arabic", "level": "Native" },
+    { "language": "English", "level": "Fluent" }
+  ],
+  "socialLinks": [
+    {
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/in/rania-abdelbary-718b85342",
+      "icon": "linkedin"
+    },
+    {
+      "platform": "WhatsApp",
+      "url": "https://wa.me/201011712614",
+      "icon": "whatsapp"
+    },
+    {
+      "platform": "Email",
+      "url": "mailto:ranianasr609@gmail.com",
+      "icon": "email"
+    }
+  ]
+}
