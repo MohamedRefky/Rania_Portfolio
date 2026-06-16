@@ -5,15 +5,15 @@ import 'app_colors.dart';
 class AppTheme {
   static ThemeData get darkTheme {
     return ThemeData(
-      brightness: Brightness.dark,
+      brightness: Brightness.light,
       primaryColor: AppColors.primary,
       scaffoldBackgroundColor: AppColors.background,
-      colorScheme: const ColorScheme.dark(
+      colorScheme: const ColorScheme.light(
         primary: AppColors.primary,
         secondary: AppColors.secondary,
         surface: AppColors.cardBackground,
       ),
-      textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme)
+      textTheme: GoogleFonts.poppinsTextTheme(ThemeData.light().textTheme)
           .copyWith(
             displayLarge: GoogleFonts.poppins(
               color: AppColors.textPrimary,
@@ -36,7 +36,7 @@ class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primary,
-          foregroundColor: AppColors.textPrimary,
+          foregroundColor: AppColors.background,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),

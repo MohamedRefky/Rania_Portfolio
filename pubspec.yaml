@@ -38,7 +38,7 @@ dev_dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/images/rania_image.png"
+  image_path: "assets/images/Rania_Image.jpeg"
   min_sdk_android: 21
 
 flutter:
@@ -49,6 +49,6 @@ flutter:
     - assets/
     - assets/data/
     - assets/images/
-    - assets/pdf/
+    
 
 
