@@ -23362,13 +23362,13 @@ return c.a(A.axE(a,b,s,s,s,s))},
 pc(){var s=$.ds.i(0,"personalInfo")
 return s==null?A.u(t.N,t.z):s},
 Dy(){var s=A.pc().i(0,"name")
-return s==null?"Mohamed Refky":s},
+return s==null?"Rania Abdelbary":s},
 amg(){var s=A.pc().i(0,"image")
-return s==null?"assets/images/my_image.jpg":s},
+return s==null?"assets/images/rania_image.png":s},
 ami(){var s=A.pc().i(0,"whatsappNumber")
-return s==null?"+201019964918":s},
+return s==null?"+201011712614":s},
 amh(){var s=A.pc().i(0,"phone")
-return"tel:"+A.j(s==null?"+201019964918":s)},
+return"tel:"+A.j(s==null?"+971501587005":s)},
 a37(){var s=0,r=A.O(t.H),q,p=2,o=[],n,m,l,k
 var $async$a37=A.P(function(a,b){if(a===1){o.push(b)
 s=p}for(;;)switch(s){case 0:if($.aoB){s=1
@@ -39206,13 +39206,13 @@ i=n.b
 i.toString
 i=i.Ba(B.p,m?28:40,1.2)
 s=A.pc().i(0,"title")
-if(s==null)s="Flutter Developer"
+if(s==null)s="Architectural Engineer | BIM Specialist"
 r=s.length===0
 q=B.f.aq(1e5*((r?B.fY:new A.hA(s)).gC(0)+8))
 r=r?B.fY:new A.hA(s)
 i=A.pR(B.H,A.pG(new A.u2(A.c([new A.zl(B.bg,s,B.aT,p,new A.aG(q),r)],t.u6),!1,p),p,B.bD,!0,i,p,p,B.az),B.bO)
 r=A.pc().i(0,"description")
-s=r==null?"I am a passionate Flutter developer with a strong foundation in mobile app development. I enjoy building high-quality, user-friendly applications that solve real-world problems. With experience in both frontend and backend development, I am committed to creating seamless and efficient mobile experiences.":r
+s=r==null?"BIM-focused Architectural Engineer with 8+ years of experience in architectural design, site supervision, and finishing works management.":r
 r=n.y
 r=r==null?p:r.Nn(18,1.6)
 s=A.jN(A.cx(A.cE(A.bv(s,p,p,r,A.cd(a).e?B.ay:B.bp),p,p),A.aB(o,0),A.aB(o,0)),0.2,0)
@@ -39224,7 +39224,7 @@ $0(){var s=0,r=A.O(t.H),q=1,p=[],o,n,m,l,k
 var $async$$0=A.P(function(a,b){if(a===1){p.push(b)
 s=q}for(;;)switch(s){case 0:q=3
 m=A.pc().i(0,"cv")
-o=A.e1(m==null?"https://drive.google.com/file/d/1o4O1oOJMVoQpqk9DghUuFOFuRJt7Oox4/view?usp=drive_link":m,0,null)
+o=A.e1(m==null?"":m,0,null)
 s=6
 return A.K(A.CX(o),$async$$0)
 case 6:if(!b)A.md().$1("Could not launch "+A.j(o))
