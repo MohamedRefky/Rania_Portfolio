@@ -56,9 +56,15 @@ class _ProjectCardState extends State<ProjectCard> {
           boxShadow: isHovered
               ? [
                   BoxShadow(
-                    color: AppColors.primary.withValues(alpha: 0.3),
-                    blurRadius: 20,
-                    offset: const Offset(0, 10),
+                    color: AppColors.accent.withValues(alpha: 0.35),
+                    blurRadius: 25,
+                    offset: const Offset(0, 12),
+                    spreadRadius: 1,
+                  ),
+                  BoxShadow(
+                    color: AppColors.primary.withValues(alpha: 0.1),
+                    blurRadius: 15,
+                    offset: const Offset(0, 5),
                   ),
                 ]
               : [
@@ -72,9 +78,9 @@ class _ProjectCardState extends State<ProjectCard> {
                 ],
           border: Border.all(
             color: isHovered
-                ? AppColors.primary.withValues(alpha: 0.5)
-                : Colors.transparent,
-            width: 1,
+                ? AppColors.accent
+                : AppColors.gradientElement.withValues(alpha: 0.5),
+            width: 1.0,
           ),
         ),
         transform: isHovered

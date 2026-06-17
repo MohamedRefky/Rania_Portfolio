@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import '../core/theme/app_colors.dart';
@@ -133,10 +134,26 @@ class _HomePageState extends State<HomePage> {
             SliverAppBar(
               pinned: true,
               floating: false,
-              backgroundColor: Theme.of(
-                context,
-              ).scaffoldBackgroundColor.withValues(alpha: 0.8),
+              backgroundColor: Colors.transparent,
               elevation: 0,
+              flexibleSpace: ClipRect(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context)
+                          .scaffoldBackgroundColor
+                          .withValues(alpha: 0.65),
+                      border: const Border(
+                        bottom: BorderSide(
+                          color: AppColors.gradientElement,
+                          width: 1.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
               title: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 250),
                 child: FittedBox(

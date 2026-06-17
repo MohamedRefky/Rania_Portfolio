@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import '../../core/theme/app_colors.dart';
-import 'shooting_stars_background.dart';
+import 'architectural_grid_background.dart';
 
 class AnimatedGradientBackground extends StatefulWidget {
   final Widget child;
@@ -123,8 +123,7 @@ class _AnimatedGradientBackgroundState extends State<AnimatedGradientBackground>
             color: AppColors.background.withValues(
               alpha: ResponsiveBreakpoints.of(context).isMobile ? 0.75 : 0.85,
             ),
-            child: ShootingStarsBackground(
-              starCount: 12,
+            child: ArchitecturalGridBackground(
               child: widget.child,
             ),
           ),
