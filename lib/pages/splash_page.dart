@@ -48,7 +48,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0F172A), // Matches your web splash
+      backgroundColor: AppColors.background, // Matches your web splash
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -59,10 +59,10 @@ class _SplashPageState extends State<SplashPage> {
                   height: 150,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: Border.all(color: AppColors.primary, width: 4),
+                    border: Border.all(color: AppColors.accent, width: 4), // Gold border
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.primary.withValues(alpha: 0.5),
+                        color: AppColors.accent.withValues(alpha: 0.3),
                         blurRadius: 30,
                         spreadRadius: 5,
                       ),
@@ -86,7 +86,7 @@ class _SplashPageState extends State<SplashPage> {
             Text(
                   AppConstants.devName.toUpperCase(),
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: AppColors.textPrimary, // Charcoal
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 4,
@@ -104,7 +104,7 @@ class _SplashPageState extends State<SplashPage> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: const LinearProgressIndicator(
-                  backgroundColor: Colors.white10,
+                  backgroundColor: Colors.black12,
                   valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
                   minHeight: 2,
                 ),
