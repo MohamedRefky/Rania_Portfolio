@@ -121,6 +121,14 @@
       "technologies": ["Revit", "AutoCAD", "3Ds Max", "Corona"],
       "liveUrl": null,
       "githubUrl": null
+    },
+    {
+      "title": "KAITECH School – Graduation Project",
+      "description": "Comprehensive BIM graduation project featuring detailed coordination across architectural, structural, and MEP disciplines, BEP/CDE workflows, 4D/5D construction sequencing, and AR/VR presentation.",
+      "imageUrl": "assets/images/project_kaitech_school.png",
+      "technologies": ["BIM", "Revit", "Navisworks", "ISO 19650", "AutoCAD"],
+      "liveUrl": "https://canva.link/30t87xf29t4q181",
+      "githubUrl": null
     }
   ],
   "education": [
