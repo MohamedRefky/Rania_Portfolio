@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../core/theme/app_colors.dart';
-import '../buttons/primary_button.dart';
-import '../buttons/outline_button.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../core/theme/app_colors.dart';
+import '../buttons/outline_button.dart';
+import '../buttons/primary_button.dart';
 
 class ProjectCard extends StatefulWidget {
   final String title;
@@ -48,6 +49,7 @@ class _ProjectCardState extends State<ProjectCard> {
       onExit: (_) => setState(() => isHovered = false),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
+        height: 445,
         decoration: BoxDecoration(
           color: AppColors.cardBackground,
           borderRadius: BorderRadius.circular(16),
@@ -91,12 +93,22 @@ class _ProjectCardState extends State<ProjectCard> {
                 fit: StackFit.expand,
                 children: [
                   // The actual project image — vivid, no darkening
-                  AnimatedScale(
-                    duration: const Duration(milliseconds: 500),
-                    scale: isHovered ? 1.08 : 1.0,
-                    child: widget.imageUrl.startsWith('http')
-                        ? Image.network(widget.imageUrl, fit: BoxFit.cover)
-                        : Image.asset(widget.imageUrl, fit: BoxFit.cover),
+                  GestureDetector(
+                    onTap: () {
+                      final isMobile = ResponsiveBreakpoints.of(
+                        context,
+                      ).isMobile;
+                      if (isMobile && widget.liveDemoUrl != null) {
+                        _launchUrl(widget.liveDemoUrl);
+                      }
+                    },
+                    child: AnimatedScale(
+                      duration: const Duration(milliseconds: 500),
+                      scale: isHovered ? 1.08 : 1.0,
+                      child: widget.imageUrl.startsWith('http')
+                          ? Image.network(widget.imageUrl, fit: BoxFit.cover)
+                          : Image.asset(widget.imageUrl, fit: BoxFit.cover),
+                    ),
                   ),
                   // Subtle bottom gradient — doesn't wash out image
                   Positioned(
@@ -142,8 +154,7 @@ class _ProjectCardState extends State<ProjectCard> {
                               PrimaryButton(
                                 text: 'Live Demo',
                                 icon: const Icon(Icons.open_in_new, size: 16),
-                                onPressed: () =>
-                                    _launchUrl(widget.liveDemoUrl),
+                                onPressed: () => _launchUrl(widget.liveDemoUrl),
                               ),
                           ],
                         ),
@@ -157,12 +168,17 @@ class _ProjectCardState extends State<ProjectCard> {
                       right: 12,
                       child: Builder(
                         builder: (context) {
-                          final isMobile = ResponsiveBreakpoints.of(context).isMobile;
+                          final isMobile = ResponsiveBreakpoints.of(
+                            context,
+                          ).isMobile;
                           if (!isMobile) return const SizedBox.shrink();
                           return GestureDetector(
                             onTap: () => _launchUrl(widget.githubUrl),
                             child: Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 12,
+                                vertical: 6,
+                              ),
                               decoration: BoxDecoration(
                                 color: Colors.black.withValues(alpha: 0.6),
                                 borderRadius: BorderRadius.circular(20),
@@ -173,9 +189,69 @@ class _ProjectCardState extends State<ProjectCard> {
                               child: const Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  FaIcon(FontAwesomeIcons.github, size: 14, color: Colors.white),
+                                  FaIcon(
+                                    FontAwesomeIcons.github,
+                                    size: 14,
+                                    color: Colors.white,
+                                  ),
                                   SizedBox(width: 6),
-                                  Text('GitHub', style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500)),
+                                  Text(
+                                    'GitHub',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  // Mobile: Live Demo / Link icon button at bottom right (always visible)
+                  if (widget.liveDemoUrl != null)
+                    Positioned(
+                      bottom: 10,
+                      right: widget.githubUrl != null ? 95 : 12,
+                      child: Builder(
+                        builder: (context) {
+                          final isMobile = ResponsiveBreakpoints.of(
+                            context,
+                          ).isMobile;
+                          if (!isMobile) return const SizedBox.shrink();
+                          return GestureDetector(
+                            onTap: () => _launchUrl(widget.liveDemoUrl),
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 12,
+                                vertical: 6,
+                              ),
+                              decoration: BoxDecoration(
+                                color: AppColors.primary,
+                                borderRadius: BorderRadius.circular(20),
+                                border: Border.all(
+                                  color: Colors.white.withValues(alpha: 0.3),
+                                ),
+                              ),
+                              child: const Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(
+                                    Icons.open_in_new,
+                                    size: 14,
+                                    color: Colors.white,
+                                  ),
+                                  SizedBox(width: 6),
+                                  Text(
+                                    'View',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
@@ -187,63 +263,75 @@ class _ProjectCardState extends State<ProjectCard> {
               ),
             ),
 
-            // Info Section — natural height
+            // Info Section — fixed height layout
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
+                mainAxisSize: MainAxisSize.max,
                 children: [
-                  Text(
-                    widget.title,
-                    style: const TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.textPrimary,
+                  SizedBox(
+                    height: 52,
+                    child: Text(
+                      widget.title,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.textPrimary,
+                        height: 1.2,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 8),
-                  Text(
-                    widget.description,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      color: AppColors.textSecondary,
-                      height: 1.5,
+                  SizedBox(
+                    height: 60,
+                    child: Text(
+                      widget.description,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        color: AppColors.textSecondary,
+                        height: 1.4,
+                      ),
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 12),
-                  Wrap(
-                    spacing: 8,
-                    runSpacing: 8,
-                    children: widget.technologies
-                        .map(
-                          (tech) => Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 12,
-                              vertical: 6,
-                            ),
-                            decoration: BoxDecoration(
-                              color: AppColors.primary.withValues(alpha: 0.1),
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(
-                                color: AppColors.primary.withValues(alpha: 0.3),
+                  SizedBox(
+                    height: 68,
+                    child: Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: widget.technologies
+                          .map(
+                            (tech) => Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 12,
+                                vertical: 6,
+                              ),
+                              decoration: BoxDecoration(
+                                color: AppColors.primary.withValues(alpha: 0.1),
+                                borderRadius: BorderRadius.circular(20),
+                                border: Border.all(
+                                  color: AppColors.primary.withValues(
+                                    alpha: 0.3,
+                                  ),
+                                ),
+                              ),
+                              child: Text(
+                                tech,
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  color: AppColors.secondary,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ),
-                            child: Text(
-                              tech,
-                              style: const TextStyle(
-                                fontSize: 12,
-                                color: AppColors.secondary,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                        )
-                        .toList(),
+                          )
+                          .toList(),
+                    ),
                   ),
                 ],
               ),

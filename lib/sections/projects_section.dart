@@ -55,6 +55,7 @@ class ProjectsSection extends StatelessWidget {
                         ? project['playStoreUrl']
                         : null,
                     githubUrl: project['githubUrl'],
+                    liveDemoUrl: project['liveUrl'],
                   )).toList();
 
               return Wrap(
