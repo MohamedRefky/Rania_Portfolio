@@ -101,7 +101,7 @@ class _TechStackSectionState extends State<TechStackSection> {
                             color: AppColors.primary.withValues(alpha: 0.2),
                           ),
                         ),
-                        child: const Icon(
+                        child:  Icon(
                           Icons.chevron_right,
                           color: AppColors.secondary,
                           size: 24,
@@ -237,7 +237,7 @@ class _SkillCategoryCardState extends State<_SkillCategoryCard> {
                       Expanded(
                         child: Text(
                           widget.title,
-                          style: const TextStyle(
+                          style:  TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: AppColors.textPrimary,
@@ -251,7 +251,7 @@ class _SkillCategoryCardState extends State<_SkillCategoryCard> {
                         padding: const EdgeInsets.only(bottom: 12),
                         child: Row(
                           children: [
-                            const FaIcon(
+                             FaIcon(
                               FontAwesomeIcons.circleCheck,
                               size: 14,
                               color: AppColors.primary,
@@ -263,7 +263,7 @@ class _SkillCategoryCardState extends State<_SkillCategoryCard> {
                                 alignment: Alignment.centerLeft,
                                 child: Text(
                                   skill,
-                                  style: const TextStyle(
+                                  style:  TextStyle(
                                     fontSize: 15,
                                     color: AppColors.textSecondary,
                                     fontWeight: FontWeight.w400,

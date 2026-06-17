@@ -71,7 +71,7 @@ class _CertificateCardState extends State<CertificateCard> {
                   child: widget.icon,
                 ),
                 const Spacer(),
-                const Icon(
+                Icon(
                   Icons.verified,
                   color: AppColors.secondary,
                   size: 24,

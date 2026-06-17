@@ -117,7 +117,7 @@ class _TimelineItem extends StatelessWidget {
                 if (isMobile)
                   Text(
                     experience['period']!,
-                    style: const TextStyle(
+                    style:  TextStyle(
                       color: AppColors.secondary,
                       fontWeight: FontWeight.bold,
                     ),
@@ -130,7 +130,7 @@ class _TimelineItem extends StatelessWidget {
                     Expanded(
                       child: Text(
                         experience['title']!,
-                        style: const TextStyle(
+                        style:  TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
                           color: AppColors.textPrimary,
@@ -140,7 +140,7 @@ class _TimelineItem extends StatelessWidget {
                     if (!isMobile)
                       Text(
                         experience['period']!,
-                        style: const TextStyle(
+                        style:  TextStyle(
                           color: AppColors.secondary,
                           fontWeight: FontWeight.bold,
                         ),
@@ -150,7 +150,7 @@ class _TimelineItem extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text(
                   experience['company']!,
-                  style: const TextStyle(
+                  style:  TextStyle(
                     fontSize: 16,
                     color: AppColors.textSecondary,
                   ),
@@ -159,7 +159,7 @@ class _TimelineItem extends StatelessWidget {
                   const SizedBox(height: 12),
                   Text(
                     experience['description']!,
-                    style: const TextStyle(
+                    style:  TextStyle(
                       fontSize: 15,
                       color: AppColors.textSecondary,
                       height: 1.5,

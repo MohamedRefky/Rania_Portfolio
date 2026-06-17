@@ -280,7 +280,7 @@ class _ProjectCardState extends State<ProjectCard> {
                     height: 52,
                     child: Text(
                       widget.title,
-                      style: const TextStyle(
+                      style:  TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: AppColors.textPrimary,
@@ -295,7 +295,7 @@ class _ProjectCardState extends State<ProjectCard> {
                     height: 60,
                     child: Text(
                       widget.description,
-                      style: const TextStyle(
+                      style:  TextStyle(
                         fontSize: 14,
                         color: AppColors.textSecondary,
                         height: 1.4,
@@ -328,7 +328,7 @@ class _ProjectCardState extends State<ProjectCard> {
                               ),
                               child: Text(
                                 tech,
-                                style: const TextStyle(
+                                style:  TextStyle(
                                   fontSize: 12,
                                   color: AppColors.secondary,
                                   fontWeight: FontWeight.w500,

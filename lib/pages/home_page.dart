@@ -128,104 +128,112 @@ class _HomePageState extends State<HomePage> {
             )
           : null,
       body: AnimatedGradientBackground(
-        child: CustomScrollView(
-          controller: _scrollController,
-          slivers: [
-            SliverAppBar(
-              pinned: true,
-              floating: false,
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              flexibleSpace: ClipRect(
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Theme.of(context)
-                          .scaffoldBackgroundColor
-                          .withValues(alpha: 0.65),
-                      border: const Border(
-                        bottom: BorderSide(
-                          color: AppColors.gradientElement,
-                          width: 1.0,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              title: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 250),
-                child: FittedBox(
-                  fit: BoxFit.scaleDown,
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    AppConstants.devName,
-                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 2.0,
-                    ),
-                  ),
-                ),
-              ),
-              actions: isMobileOrTablet
-                  ? null
-                  : [
-                      Expanded(
-                        child: FittedBox(
-                          fit: BoxFit.scaleDown,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              _NavBarItem(
-                                title: 'About',
-                                onPressed: () => _scrollToSection(_aboutKey),
-                              ),
-                              _NavBarItem(
-                                title: 'Services',
-                                onPressed: () => _scrollToSection(_servicesKey),
-                              ),
-                              _NavBarItem(
-                                title: 'Projects',
-                                onPressed: () => _scrollToSection(_projectsKey),
-                              ),
-                              _NavBarItem(
-                                title: 'Experience',
-                                onPressed: () =>
-                                    _scrollToSection(_experienceKey),
-                              ),
-                              _NavBarItem(
-                                title: 'Contact',
-                                onPressed: () => _scrollToSection(_contactKey),
-                              ),
-                            ],
+        child: ValueListenableBuilder<ThemeMode>(
+          valueListenable: AppColors.themeModeNotifier,
+          builder: (context, themeMode, _) {
+            final isDark = themeMode == ThemeMode.dark;
+            return CustomScrollView(
+              key: ValueKey(themeMode),
+              controller: _scrollController,
+              slivers: [
+                SliverAppBar(
+                  pinned: true,
+                  floating: false,
+                  backgroundColor: Colors.transparent,
+                  elevation: 0,
+                  flexibleSpace: ClipRect(
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Theme.of(context)
+                              .scaffoldBackgroundColor
+                              .withValues(alpha: 0.65),
+                          border: Border(
+                            bottom: BorderSide(
+                              color: AppColors.gradientElement,
+                              width: 1.0,
+                            ),
                           ),
                         ),
                       ),
-                      const SizedBox(width: 8),
-                    ],
-            ),
-            SliverToBoxAdapter(
-              child: Column(
-                children: [
-                  HeroSection(
-                    onViewProjects: () => _scrollToSection(_projectsKey),
-                    onContactMe: () => _scrollToSection(_contactKey),
-                    onViewServices: () => _scrollToSection(_servicesKey),
+                    ),
                   ),
-                  AboutSection(key: _aboutKey),
-                  const ExpertiseSection(),
-                  ServicesSection(key: _servicesKey),
-                  ProjectsSection(key: _projectsKey),
-                  const TechStackSection(),
-                  ExperienceSection(key: _experienceKey),
-                  const EducationSection(),
-                  const CertificatesSection(),
-                  ContactSection(key: _contactKey),
-                ],
-              ),
-            ),
-          ],
+                  title: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 250),
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        AppConstants.devName,
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 2.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                  actions: [
+                    if (!isMobileOrTablet)
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          _NavBarItem(
+                            title: 'About',
+                            onPressed: () => _scrollToSection(_aboutKey),
+                          ),
+                          _NavBarItem(
+                            title: 'Services',
+                            onPressed: () => _scrollToSection(_servicesKey),
+                          ),
+                          _NavBarItem(
+                            title: 'Projects',
+                            onPressed: () => _scrollToSection(_projectsKey),
+                          ),
+                          _NavBarItem(
+                            title: 'Experience',
+                            onPressed: () => _scrollToSection(_experienceKey),
+                          ),
+                          _NavBarItem(
+                            title: 'Contact',
+                            onPressed: () => _scrollToSection(_contactKey),
+                          ),
+                        ],
+                      ),
+                    IconButton(
+                      icon: Icon(
+                        isDark ? Icons.light_mode_outlined : Icons.dark_mode_outlined,
+                        color: AppColors.textPrimary,
+                      ),
+                      tooltip: isDark ? 'Light Mode' : 'Dark Mode',
+                      onPressed: AppColors.toggleTheme,
+                    ),
+                    const SizedBox(width: 16),
+                  ],
+                ),
+                SliverToBoxAdapter(
+                  child: Column(
+                    children: [
+                      HeroSection(
+                        onViewProjects: () => _scrollToSection(_projectsKey),
+                        onContactMe: () => _scrollToSection(_contactKey),
+                        onViewServices: () => _scrollToSection(_servicesKey),
+                      ),
+                      AboutSection(key: _aboutKey),
+                      const ExpertiseSection(),
+                      ServicesSection(key: _servicesKey),
+                      ProjectsSection(key: _projectsKey),
+                      const TechStackSection(),
+                      ExperienceSection(key: _experienceKey),
+                      const EducationSection(),
+                      const CertificatesSection(),
+                      ContactSection(key: _contactKey),
+                    ],
+                  ),
+                ),
+              ],
+            );
+          },
         ),
       ),
     );
@@ -247,7 +255,7 @@ class _DrawerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: Icon(icon, color: AppColors.primary),
-      title: Text(title, style: const TextStyle(color: AppColors.textPrimary)),
+      title: Text(title, style: TextStyle(color: AppColors.textPrimary)),
       onTap: onPressed,
     );
   }

@@ -16,6 +16,9 @@ class SectionTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
     return Column(
       children: [
         FittedBox(
@@ -25,7 +28,7 @@ class SectionTitle extends StatelessWidget {
             style: TextStyle(
               fontSize: 36,
               fontWeight: FontWeight.bold,
-              color: AppColors.textPrimary,
+              color: isDark ? const Color(0xFFFAFAF8) : const Color(0xFF1A1814),
               letterSpacing: letterSpacing,
             ),
             textAlign: TextAlign.center,
@@ -36,8 +39,10 @@ class SectionTitle extends StatelessWidget {
           height: 4,
           width: lineWidth,
           decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              colors: [AppColors.primary, AppColors.secondary],
+            gradient: LinearGradient(
+              colors: isDark
+                  ? const [Color(0xFFFAFAF8), Color(0xFFA8947C)]
+                  : const [Color(0xFF2C2C2A), Color(0xFF8B7355)],
             ),
             borderRadius: BorderRadius.circular(2),
           ),

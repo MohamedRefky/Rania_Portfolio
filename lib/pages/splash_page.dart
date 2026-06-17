@@ -85,7 +85,7 @@ class _SplashPageState extends State<SplashPage> {
             // Name Text
             Text(
                   AppConstants.devName.toUpperCase(),
-                  style: const TextStyle(
+                  style:  TextStyle(
                     color: AppColors.textPrimary, // Charcoal
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -103,7 +103,7 @@ class _SplashPageState extends State<SplashPage> {
               width: 150,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
-                child: const LinearProgressIndicator(
+                child:  LinearProgressIndicator(
                   backgroundColor: Colors.black12,
                   valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
                   minHeight: 2,

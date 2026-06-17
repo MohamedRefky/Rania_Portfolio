@@ -45,7 +45,7 @@ class AboutSection extends StatelessWidget {
                 children: [
                   if (PortfolioData.data['personalInfo']?['location'] != null)
                     _InfoChip(
-                      icon: const FaIcon(
+                      icon:  FaIcon(
                         FontAwesomeIcons.locationDot,
                         size: 16,
                         color: AppColors.primary,
@@ -56,7 +56,7 @@ class AboutSection extends StatelessWidget {
                           .data['personalInfo']?['yearsOfExperience'] !=
                       null)
                     _InfoChip(
-                      icon: const FaIcon(
+                      icon:  FaIcon(
                         FontAwesomeIcons.briefcase,
                         size: 16,
                         color: AppColors.primary,
@@ -67,7 +67,7 @@ class AboutSection extends StatelessWidget {
                   if (PortfolioData.data['personalInfo']?['availability'] !=
                       null)
                     _InfoChip(
-                      icon: const FaIcon(
+                      icon:  FaIcon(
                         FontAwesomeIcons.calendarCheck,
                         size: 16,
                         color: AppColors.primary,
@@ -232,7 +232,7 @@ class _InfoChip extends StatelessWidget {
           const SizedBox(width: 8),
           Text(
             text,
-            style: const TextStyle(
+            style:  TextStyle(
               color: AppColors.textPrimary,
               fontWeight: FontWeight.w500,
             ),

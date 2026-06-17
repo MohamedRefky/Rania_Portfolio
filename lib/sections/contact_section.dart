@@ -86,7 +86,7 @@ class ContactSection extends StatelessWidget {
               cards.add(
                 _ContactCard(
                   width: cardWidth,
-                  icon: const FaIcon(
+                  icon:  FaIcon(
                     FontAwesomeIcons.phone,
                     size: 28,
                     color: AppColors.secondary,
@@ -117,7 +117,7 @@ class ContactSection extends StatelessWidget {
           const SizedBox(height: 80),
           Text(
             'Designed & Built by ${AppConstants.devName}',
-            style: const TextStyle(
+            style:  TextStyle(
               color: AppColors.textSecondary,
               fontSize: 14,
             ),
@@ -200,7 +200,7 @@ class _ContactCardState extends State<_ContactCard> {
             const SizedBox(height: 16),
             Text(
               widget.title,
-              style: const TextStyle(
+              style:  TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
                 color: AppColors.textPrimary,
@@ -209,7 +209,7 @@ class _ContactCardState extends State<_ContactCard> {
             const SizedBox(height: 8),
             Text(
               widget.value,
-              style: const TextStyle(
+              style:  TextStyle(
                 fontSize: 14,
                 color: AppColors.textSecondary,
               ),

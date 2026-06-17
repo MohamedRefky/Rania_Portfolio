@@ -99,7 +99,7 @@ class _ServicesSectionState extends State<ServicesSection> {
                             color: AppColors.primary.withValues(alpha: 0.2),
                           ),
                         ),
-                        child: const Icon(
+                        child:  Icon(
                           Icons.chevron_right,
                           color: AppColors.secondary,
                           size: 24,

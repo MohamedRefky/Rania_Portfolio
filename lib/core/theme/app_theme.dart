@@ -3,17 +3,22 @@ import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
 
 class AppTheme {
-  static ThemeData get darkTheme {
+  static ThemeData get themeData {
+    final isDark = AppColors.isDark;
+    final baseTextTheme = isDark ? ThemeData.dark().textTheme : ThemeData.light().textTheme;
+
     return ThemeData(
-      brightness: Brightness.light,
+      brightness: isDark ? Brightness.dark : Brightness.light,
       primaryColor: AppColors.primary,
       scaffoldBackgroundColor: AppColors.background,
-      colorScheme: const ColorScheme.light(
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: AppColors.primary,
+        brightness: isDark ? Brightness.dark : Brightness.light,
         primary: AppColors.primary,
         secondary: AppColors.secondary,
         surface: AppColors.cardBackground,
       ),
-      textTheme: GoogleFonts.poppinsTextTheme(ThemeData.light().textTheme)
+      textTheme: GoogleFonts.poppinsTextTheme(baseTextTheme)
           .copyWith(
             displayLarge: GoogleFonts.poppins(
               color: AppColors.textPrimary,
@@ -26,10 +31,10 @@ class AppTheme {
             bodyLarge: GoogleFonts.inter(color: AppColors.textPrimary),
             bodyMedium: GoogleFonts.inter(color: AppColors.textSecondary),
           ),
-      cardTheme: const CardThemeData(
+      cardTheme: CardThemeData(
         color: AppColors.cardBackground,
         elevation: 8,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(16)),
         ),
       ),
@@ -45,4 +50,7 @@ class AppTheme {
       ),
     );
   }
+
+  // Maintaining darkTheme alias to avoid breaking main.dart
+  static ThemeData get darkTheme => themeData;
 }

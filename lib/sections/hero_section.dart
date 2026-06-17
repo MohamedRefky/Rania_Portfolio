@@ -77,7 +77,7 @@ class _HeroText extends StatelessWidget {
           : CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text(
+         Text(
           "Hello, I'm",
           style: TextStyle(
             fontSize: 24,
@@ -196,7 +196,7 @@ class _DevImage extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                gradient: const LinearGradient(
+                gradient:  LinearGradient(
                   colors: [AppColors.primary, AppColors.secondary],
                 ),
                 boxShadow: [

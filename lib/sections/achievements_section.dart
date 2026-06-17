@@ -45,7 +45,7 @@ class AchievementsSection extends StatelessWidget {
                     runSpacing: 32,
                     alignment: WrapAlignment.center,
                     children: [
-                      const GlassAchievementCard(
+                       GlassAchievementCard(
                         icon: FaIcon(
                           FontAwesomeIcons.rocket,
                           size: 32,
@@ -54,7 +54,7 @@ class AchievementsSection extends StatelessWidget {
                         value: 5,
                         subtitle: 'Production Mobile Apps',
                       ),
-                      const GlassAchievementCard(
+                       GlassAchievementCard(
                         icon: FaIcon(
                           FontAwesomeIcons.cartShopping,
                           size: 32,
@@ -63,7 +63,7 @@ class AchievementsSection extends StatelessWidget {
                         value: 2,
                         subtitle: 'E-commerce Systems Built',
                       ),
-                      const GlassAchievementCard(
+                       GlassAchievementCard(
                         icon: FaIcon(
                           FontAwesomeIcons.bolt,
                           size: 32,
@@ -73,7 +73,7 @@ class AchievementsSection extends StatelessWidget {
                         suffix: '+',
                         subtitle: 'Years Flutter Experience',
                       ),
-                      const GlassAchievementCard(
+                       GlassAchievementCard(
                         icon: FaIcon(
                           FontAwesomeIcons.chalkboardUser,
                           size: 32,

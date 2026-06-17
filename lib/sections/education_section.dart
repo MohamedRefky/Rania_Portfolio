@@ -120,7 +120,7 @@ class _EducationItem extends StatelessWidget {
                 if (isMobile)
                   Text(
                     education['period'] ?? '',
-                    style: const TextStyle(
+                    style:  TextStyle(
                       color: AppColors.secondary,
                       fontWeight: FontWeight.bold,
                     ),
@@ -144,7 +144,7 @@ class _EducationItem extends StatelessWidget {
                           Expanded(
                             child: Text(
                               education['degree'] ?? '',
-                              style: const TextStyle(
+                              style:  TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                                 color: AppColors.textPrimary,
@@ -157,7 +157,7 @@ class _EducationItem extends StatelessWidget {
                     if (!isMobile)
                       Text(
                         education['period'] ?? '',
-                        style: const TextStyle(
+                        style:  TextStyle(
                           color: AppColors.secondary,
                           fontWeight: FontWeight.bold,
                         ),
@@ -167,7 +167,7 @@ class _EducationItem extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text(
                   education['university'] ?? '',
-                  style: const TextStyle(
+                  style:  TextStyle(
                     fontSize: 16,
                     color: AppColors.textSecondary,
                   ),
@@ -185,7 +185,7 @@ class _EducationItem extends StatelessWidget {
                     ),
                     child: Text(
                       'Grade: ${education['grade']}',
-                      style: const TextStyle(
+                      style:  TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
                         color: AppColors.secondary,

@@ -118,7 +118,7 @@ class _GlassAchievementCardState extends State<GlassAchievementCard>
                       }
                       return Text(
                         '$displayedValue${widget.suffix}',
-                        style: const TextStyle(
+                        style:  TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.bold,
                           color: AppColors.textPrimary,
