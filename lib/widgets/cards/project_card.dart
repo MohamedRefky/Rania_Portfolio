@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../core/theme/app_colors.dart';
 import '../buttons/outline_button.dart';
 import '../buttons/primary_button.dart';
+import '../../pages/project_details_page.dart';
 
 class ProjectCard extends StatefulWidget {
   final String title;
@@ -15,6 +16,7 @@ class ProjectCard extends StatefulWidget {
   final String? playStoreUrl;
   final String? githubUrl;
   final String? liveDemoUrl;
+  final String? innerImage;
 
   const ProjectCard({
     super.key,
@@ -25,6 +27,7 @@ class ProjectCard extends StatefulWidget {
     this.playStoreUrl,
     this.githubUrl,
     this.liveDemoUrl,
+    this.innerImage,
   });
 
   @override
@@ -101,6 +104,20 @@ class _ProjectCardState extends State<ProjectCard> {
                   // The actual project image — vivid, no darkening
                   GestureDetector(
                     onTap: () {
+                      if (widget.innerImage != null) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProjectDetailsPage(
+                              title: widget.title,
+                              description: widget.description,
+                              innerImage: widget.innerImage!,
+                            ),
+                          ),
+                        );
+                        return;
+                      }
+
                       final isMobile = ResponsiveBreakpoints.of(
                         context,
                       ).isMobile;
