@@ -49,6 +49,8 @@ flutter:
     - assets/
     - assets/data/
     - assets/images/
+    - assets/nano/
+    - assets/VILA_PROJECT/
     
 
 

@@ -102,7 +102,7 @@
       ],
       "liveUrl": null,
       "githubUrl": null,
-      "innerImage": "assets/nano/nano_project.png"
+      "innerImages": ["assets/nano/nano_project.png"]
     },
     {
       "title": "Magic Land Project",
@@ -154,6 +154,24 @@
       ],
       "liveUrl": "https://canva.link/30t87xf29t4q181",
       "githubUrl": null
+    },
+    {
+      "title": "innerImages| BIM Architectural Project",
+      "description": "Created a fully coordinated BIM model in Autodesk Revit, delivering parametric architectural modeling, construction documentation, schedules, and high-quality visual presentations in accordance with industry BIM standards.",
+      "imageUrl": "",
+      "technologies": ["Revit", "BIM"],
+      "liveUrl": null,
+      "githubUrl": null,
+      "innerImages": [
+        "assets/VILA_PROJECT/1_RANIA ABDLBARY5_29200652.png",
+        "assets/VILA_PROJECT/2_plan_29200652.png",
+        "assets/VILA_PROJECT/3_plan2_29200652.png",
+        "assets/VILA_PROJECT/4_RANIA ABDLBARY4_29200652.png",
+        "assets/VILA_PROJECT/5_RANIA ABDLBARY33_29200652.png",
+        "assets/VILA_PROJECT/6_RANIA ABDLBARY22_29200652.png",
+        "assets/VILA_PROJECT/7_RANIA ABDLBARY_29200652.png",
+        "assets/VILA_PROJECT/8_RANIA ABDLBARY6_29200652.png"
+      ]
     }
   ],
   "education": [

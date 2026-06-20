@@ -16,7 +16,7 @@ class ProjectCard extends StatefulWidget {
   final String? playStoreUrl;
   final String? githubUrl;
   final String? liveDemoUrl;
-  final String? innerImage;
+  final List<String>? innerImages;
 
   const ProjectCard({
     super.key,
@@ -27,7 +27,7 @@ class ProjectCard extends StatefulWidget {
     this.playStoreUrl,
     this.githubUrl,
     this.liveDemoUrl,
-    this.innerImage,
+    this.innerImages,
   });
 
   @override
@@ -104,14 +104,14 @@ class _ProjectCardState extends State<ProjectCard> {
                   // The actual project image — vivid, no darkening
                   GestureDetector(
                     onTap: () {
-                      if (widget.innerImage != null) {
+                      if (widget.innerImages != null && widget.innerImages!.isNotEmpty) {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => ProjectDetailsPage(
                               title: widget.title,
                               description: widget.description,
-                              innerImage: widget.innerImage!,
+                              innerImages: widget.innerImages!,
                             ),
                           ),
                         );
@@ -128,9 +128,20 @@ class _ProjectCardState extends State<ProjectCard> {
                     child: AnimatedScale(
                       duration: const Duration(milliseconds: 500),
                       scale: isHovered ? 1.08 : 1.0,
-                      child: widget.imageUrl.startsWith('http')
-                          ? Image.network(widget.imageUrl, fit: BoxFit.cover)
-                          : Image.asset(widget.imageUrl, fit: BoxFit.cover),
+                      child: widget.imageUrl.isEmpty
+                          ? Container(
+                              color: AppColors.primary.withValues(alpha: 0.1),
+                              child: Center(
+                                child: Icon(
+                                  Icons.domain,
+                                  size: 64,
+                                  color: AppColors.primary.withValues(alpha: 0.3),
+                                ),
+                              ),
+                            )
+                          : widget.imageUrl.startsWith('http')
+                              ? Image.network(widget.imageUrl, fit: BoxFit.cover)
+                              : Image.asset(widget.imageUrl, fit: BoxFit.cover),
                     ),
                   ),
                   // Subtle bottom gradient — doesn't wash out image

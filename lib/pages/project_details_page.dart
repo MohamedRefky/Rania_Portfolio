@@ -5,13 +5,13 @@ import '../../core/theme/app_colors.dart';
 class ProjectDetailsPage extends StatelessWidget {
   final String title;
   final String description;
-  final String innerImage;
+  final List<String> innerImages;
 
   const ProjectDetailsPage({
     super.key,
     required this.title,
     required this.description,
-    required this.innerImage,
+    required this.innerImages,
   });
 
   @override
@@ -61,19 +61,23 @@ class ProjectDetailsPage extends StatelessWidget {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: InteractiveViewer(
-                  maxScale: 5.0,
-                  child: Image.asset(
-                    innerImage,
-                    fit: BoxFit.contain,
+            ...innerImages.asMap().entries.map((entry) {
+              final index = entry.key;
+              final imagePath = entry.value;
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: InteractiveViewer(
+                    maxScale: 5.0,
+                    child: Image.asset(
+                      imagePath,
+                      fit: BoxFit.contain,
+                    ),
                   ),
-                ),
-              ).animate().fadeIn(delay: 200.ms).scale(),
-            ),
+                ).animate().fadeIn(delay: (200 + (index * 100)).ms).scale(),
+              );
+            }),
             const SizedBox(height: 40),
           ],
         ),

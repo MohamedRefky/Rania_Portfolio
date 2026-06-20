@@ -56,7 +56,7 @@ class ProjectsSection extends StatelessWidget {
                         : null,
                     githubUrl: project['githubUrl'],
                     liveDemoUrl: project['liveUrl'],
-                    innerImage: project['innerImage'],
+                    innerImages: project['innerImages'] != null ? List<String>.from(project['innerImages']) : null,
                   )).toList();
 
               return Wrap(
