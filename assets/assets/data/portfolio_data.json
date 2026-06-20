@@ -93,8 +93,13 @@
     {
       "title": "Nano Building – Faculty of Science, Ain Shams University",
       "description": "Large-scale academic building developed in collaboration with IBS. Contributed to BIM model development, site coordination, and finishing works supervision.",
-      "imageUrl": "assets/images/project_nano_building.png",
-      "technologies": ["Revit", "Navisworks", "AutoCAD", "ACC"],
+      "imageUrl": "assets/nano/project_nano_building_background.jpeg",
+      "technologies": [
+        "Revit",
+        "Navisworks",
+        "AutoCAD",
+        "ACC"
+      ],
       "liveUrl": null,
       "githubUrl": null
     },
@@ -102,7 +107,11 @@
       "title": "Magic Land Project",
       "description": "Commercial project executed with Kayan Company. Involved coordination with contractors and stakeholders, site supervision, and BIM-based documentation.",
       "imageUrl": "assets/images/project_magic_land.png",
-      "technologies": ["Revit", "AutoCAD", "Navisworks"],
+      "technologies": [
+        "Revit",
+        "AutoCAD",
+        "Navisworks"
+      ],
       "liveUrl": null,
       "githubUrl": null
     },
@@ -110,7 +119,11 @@
       "title": "Cosmic Village School",
       "description": "Educational facility in 6th of October City, developed with Mobica. Managed finishing works and coordinated multidisciplinary teams on-site.",
       "imageUrl": "assets/images/project_cosmic_school.png",
-      "technologies": ["Revit", "AutoCAD", "Navisworks"],
+      "technologies": [
+        "Revit",
+        "AutoCAD",
+        "Navisworks"
+      ],
       "liveUrl": null,
       "githubUrl": null
     },
@@ -118,15 +131,26 @@
       "title": "MAMINA'S Restaurant – Palm Hills Compound",
       "description": "Commercial F&B interior architecture project in 6th of October, Cairo. Contributed to design detailing and finishing works management.",
       "imageUrl": "assets/images/project_mamina_restaurant.png",
-      "technologies": ["Revit", "AutoCAD", "3Ds Max", "Corona"],
+      "technologies": [
+        "Revit",
+        "AutoCAD",
+        "3Ds Max",
+        "Corona"
+      ],
       "liveUrl": null,
       "githubUrl": null
     },
     {
       "title": "KAITECH School – Graduation Project",
-      "description": "Comprehensive BIM graduation project featuring detailed coordination across architectural, structural, and MEP disciplines, BEP/CDE workflows, 4D/5D construction sequencing, and AR/VR presentation.",
-      "imageUrl": "assets/images/project_kaitech_school.png",
-      "technologies": ["BIM", "Revit", "Navisworks", "ISO 19650", "AutoCAD"],
+      "description": "Kaitech School Project New Administrative Capital, Egypt, with a total area of approximately 28,600 m²The project was developed using BIM methodologies and ISO 19650",
+      "imageUrl": "assets/images/project_kaitech_school.jpeg",
+      "technologies": [
+        "BIM",
+        "Revit",
+        "Navisworks",
+        "ISO 19650",
+        "AutoCAD"
+      ],
       "liveUrl": "https://canva.link/30t87xf29t4q181",
       "githubUrl": null
     }
@@ -166,22 +190,70 @@
     }
   ],
   "expertise": [
-    { "name": "Revit", "icon": "cube" },
-    { "name": "AutoCAD", "icon": "pencilRuler" },
-    { "name": "Navisworks", "icon": "layerGroup" },
-    { "name": "3Ds Max", "icon": "cube" },
-    { "name": "Dynamo", "icon": "bolt" },
-    { "name": "Autodesk Construction Cloud (ACC)", "icon": "cloud" },
-    { "name": "Corona Renderer", "icon": "sun" },
-    { "name": "Photoshop", "icon": "image" }
+    {
+      "name": "Revit",
+      "icon": "cube"
+    },
+    {
+      "name": "AutoCAD",
+      "icon": "pencilRuler"
+    },
+    {
+      "name": "Navisworks",
+      "icon": "layerGroup"
+    },
+    {
+      "name": "3Ds Max",
+      "icon": "cube"
+    },
+    {
+      "name": "Dynamo",
+      "icon": "bolt"
+    },
+    {
+      "name": "Autodesk Construction Cloud (ACC)",
+      "icon": "cloud"
+    },
+    {
+      "name": "Corona Renderer",
+      "icon": "sun"
+    },
+    {
+      "name": "Photoshop",
+      "icon": "image"
+    }
   ],
   "expertiseDetails": [
-    { "title": "BIM Modeling & Documentation", "desc": "Advanced Revit modeling, LOD 100–400 development, BEP preparation and implementation.", "icon": "cube" },
-    { "title": "Clash Detection & Coordination", "desc": "Federated model coordination using Navisworks, categorizing Hard/Soft/Workflow clashes, issuing coordination reports.", "icon": "layerGroup" },
-    { "title": "4D/5D BIM Integration", "desc": "Construction sequencing simulations and cost integration with model-based BOQ (MBOQ) and quantity take-off.", "icon": "chartBar" },
-    { "title": "ISO 19650 Compliance", "desc": "Structured project information, naming conventions, version control, and document approval workflows per BIM standards.", "icon": "certificate" },
-    { "title": "Site Supervision", "desc": "Managing finishing works, resolving on-site technical issues, and maintaining quality standards.", "icon": "hardHat" },
-    { "title": "3D Visualization", "desc": "High-quality architectural renders and presentation materials using 3Ds Max and Corona.", "icon": "eye" }
+    {
+      "title": "BIM Modeling & Documentation",
+      "desc": "Advanced Revit modeling, LOD 100–400 development, BEP preparation and implementation.",
+      "icon": "cube"
+    },
+    {
+      "title": "Clash Detection & Coordination",
+      "desc": "Federated model coordination using Navisworks, categorizing Hard/Soft/Workflow clashes, issuing coordination reports.",
+      "icon": "layerGroup"
+    },
+    {
+      "title": "4D/5D BIM Integration",
+      "desc": "Construction sequencing simulations and cost integration with model-based BOQ (MBOQ) and quantity take-off.",
+      "icon": "chartBar"
+    },
+    {
+      "title": "ISO 19650 Compliance",
+      "desc": "Structured project information, naming conventions, version control, and document approval workflows per BIM standards.",
+      "icon": "certificate"
+    },
+    {
+      "title": "Site Supervision",
+      "desc": "Managing finishing works, resolving on-site technical issues, and maintaining quality standards.",
+      "icon": "hardHat"
+    },
+    {
+      "title": "3D Visualization",
+      "desc": "High-quality architectural renders and presentation materials using 3Ds Max and Corona.",
+      "icon": "eye"
+    }
   ],
   "techStack": [
     {
@@ -227,8 +299,14 @@
     }
   ],
   "languages": [
-    { "language": "Arabic", "level": "Native" },
-    { "language": "English", "level": "Fluent" }
+    {
+      "language": "Arabic",
+      "level": "Native"
+    },
+    {
+      "language": "English",
+      "level": "Fluent"
+    }
   ],
   "socialLinks": [
     {
