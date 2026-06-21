@@ -175,6 +175,23 @@ class _ProjectCardState extends State<ProjectCard> {
                           runSpacing: 12,
                           alignment: WrapAlignment.center,
                           children: [
+                            if (widget.innerImages != null && widget.innerImages!.isNotEmpty)
+                              PrimaryButton(
+                                text: 'Project Details',
+                                icon: const Icon(Icons.photo_library, size: 16),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => ProjectDetailsPage(
+                                        title: widget.title,
+                                        description: widget.description,
+                                        innerImages: widget.innerImages!,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
                             if (widget.githubUrl != null)
                               OutlineButton(
                                 text: 'GitHub',
@@ -195,104 +212,111 @@ class _ProjectCardState extends State<ProjectCard> {
                       ),
                     ),
                   ),
-                  // Mobile: GitHub icon button at bottom right (always visible)
-                  if (widget.githubUrl != null)
-                    Positioned(
-                      bottom: 10,
-                      right: 12,
-                      child: Builder(
-                        builder: (context) {
-                          final isMobile = ResponsiveBreakpoints.of(
-                            context,
-                          ).isMobile;
-                          if (!isMobile) return const SizedBox.shrink();
-                          return GestureDetector(
-                            onTap: () => _launchUrl(widget.githubUrl),
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 12,
-                                vertical: 6,
-                              ),
-                              decoration: BoxDecoration(
-                                color: Colors.black.withValues(alpha: 0.6),
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(
-                                  color: Colors.white.withValues(alpha: 0.3),
-                                ),
-                              ),
-                              child: const Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  FaIcon(
-                                    FontAwesomeIcons.github,
-                                    size: 14,
-                                    color: Colors.white,
-                                  ),
-                                  SizedBox(width: 6),
-                                  Text(
-                                    'GitHub',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w500,
+                  // Mobile: icon buttons at bottom right (always visible)
+                  Positioned(
+                    bottom: 10,
+                    right: 12,
+                    child: Builder(
+                      builder: (context) {
+                        final isMobile = ResponsiveBreakpoints.of(context).isMobile;
+                        if (!isMobile) return const SizedBox.shrink();
+                        return Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            if (widget.innerImages != null && widget.innerImages!.isNotEmpty)
+                              Padding(
+                                padding: const EdgeInsets.only(left: 8.0),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ProjectDetailsPage(
+                                          title: widget.title,
+                                          description: widget.description,
+                                          innerImages: widget.innerImages!,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.primary,
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(color: Colors.white.withValues(alpha: 0.3)),
+                                    ),
+                                    child: const Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Icon(Icons.photo_library, size: 14, color: Colors.white),
+                                        SizedBox(width: 6),
+                                        Text(
+                                          'Details',
+                                          style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                ],
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  // Mobile: Live Demo / Link icon button at bottom right (always visible)
-                  if (widget.liveDemoUrl != null)
-                    Positioned(
-                      bottom: 10,
-                      right: widget.githubUrl != null ? 95 : 12,
-                      child: Builder(
-                        builder: (context) {
-                          final isMobile = ResponsiveBreakpoints.of(
-                            context,
-                          ).isMobile;
-                          if (!isMobile) return const SizedBox.shrink();
-                          return GestureDetector(
-                            onTap: () => _launchUrl(widget.liveDemoUrl),
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 12,
-                                vertical: 6,
-                              ),
-                              decoration: BoxDecoration(
-                                color: AppColors.primary,
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(
-                                  color: Colors.white.withValues(alpha: 0.3),
                                 ),
                               ),
-                              child: const Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Icon(
-                                    Icons.open_in_new,
-                                    size: 14,
-                                    color: Colors.white,
-                                  ),
-                                  SizedBox(width: 6),
-                                  Text(
-                                    'View',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w500,
+                            if (widget.liveDemoUrl != null)
+                              Padding(
+                                padding: const EdgeInsets.only(left: 8.0),
+                                child: GestureDetector(
+                                  onTap: () => _launchUrl(widget.liveDemoUrl),
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.primary,
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(color: Colors.white.withValues(alpha: 0.3)),
+                                    ),
+                                    child: const Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Icon(Icons.open_in_new, size: 14, color: Colors.white),
+                                        SizedBox(width: 6),
+                                        Text(
+                                          'View',
+                                          style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                ],
+                                ),
                               ),
-                            ),
-                          );
-                        },
-                      ),
+                            if (widget.githubUrl != null)
+                              Padding(
+                                padding: const EdgeInsets.only(left: 8.0),
+                                child: GestureDetector(
+                                  onTap: () => _launchUrl(widget.githubUrl),
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                                    decoration: BoxDecoration(
+                                      color: Colors.black.withValues(alpha: 0.6),
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(color: Colors.white.withValues(alpha: 0.3)),
+                                    ),
+                                    child: const Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        FaIcon(FontAwesomeIcons.github, size: 14, color: Colors.white),
+                                        SizedBox(width: 6),
+                                        Text(
+                                          'GitHub',
+                                          style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                          ],
+                        );
+                      },
                     ),
+                  ),
                 ],
               ),
             ),
