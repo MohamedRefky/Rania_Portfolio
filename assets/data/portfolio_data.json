@@ -216,6 +216,29 @@
         "assets/shop_drawing/23.PNG",
         "assets/shop_drawing/24.PNG"
       ]
+    },
+    {
+      "title": "Conceptual Tower | Architectural Massing Study",
+      "description": "Designed and modeled a conceptual tower mass in Autodesk Revit, showcasing architectural form development, massing studies, and advanced 3D modeling techniques.",
+      "imageUrl": "assets/TOWER/5.jpg",
+      "technologies": [
+        "Revit",
+        "Conceptual Massing",
+        "3D Modeling",
+        "Form Development"
+      ],
+      "liveUrl": null,
+      "githubUrl": null,
+      "innerImages": [
+        "assets/TOWER/1.jpg",
+        "assets/TOWER/2.jpg",
+        "assets/TOWER/3.jpg",
+        "assets/TOWER/4.jpg",
+        "assets/TOWER/5.jpg",
+        "assets/TOWER/6.png",
+        "assets/TOWER/7.png",
+        "assets/TOWER/8.jpg"
+      ]
     }
   ],
   "education": [
