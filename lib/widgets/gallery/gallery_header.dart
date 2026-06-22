@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/theme/app_colors.dart';
 
 class GalleryHeader extends StatelessWidget {
   final String title;
@@ -25,12 +26,12 @@ class GalleryHeader extends StatelessWidget {
         children: [
           _HeaderButton(
             onTap: () => Navigator.pop(context),
-            child: const Center(
+            child: Center(
               child: Padding(
-                padding: EdgeInsets.only(right: 2.0),
+                padding: const EdgeInsets.only(right: 2.0),
                 child: Icon(
                   Icons.arrow_back_ios_new_rounded,
-                  color: Colors.white,
+                  color: AppColors.primary,
                   size: 16,
                 ),
               ),
@@ -41,7 +42,7 @@ class GalleryHeader extends StatelessWidget {
             child: Text(
               title,
               style: TextStyle(
-                color: Colors.white,
+                color: AppColors.primary,
                 fontSize: isMobile ? 18 : 22,
                 fontWeight: FontWeight.w600,
                 letterSpacing: 0.5,
@@ -54,16 +55,16 @@ class GalleryHeader extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.08),
+              color: AppColors.primary.withValues(alpha: 0.08),
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
-                color: Colors.white.withValues(alpha: 0.12),
+                color: AppColors.primary.withValues(alpha: 0.12),
               ),
             ),
             child: Text(
               '${currentIndex + 1} / $total',
               style: TextStyle(
-                color: Colors.white.withValues(alpha: 0.85),
+                color: AppColors.primary.withValues(alpha: 0.85),
                 fontSize: 13,
                 fontWeight: FontWeight.w500,
                 fontFamily: 'monospace',
@@ -103,13 +104,13 @@ class _HeaderButtonState extends State<_HeaderButton> {
           height: 40,
           decoration: BoxDecoration(
             color: _isHovered
-                ? Colors.white.withValues(alpha: 0.18)
-                : Colors.white.withValues(alpha: 0.08),
+                ? AppColors.primary.withValues(alpha: 0.18)
+                : AppColors.primary.withValues(alpha: 0.08),
             shape: BoxShape.circle,
             border: Border.all(
               color: _isHovered
-                  ? Colors.white.withValues(alpha: 0.3)
-                  : Colors.white.withValues(alpha: 0.12),
+                  ? AppColors.primary.withValues(alpha: 0.3)
+                  : AppColors.primary.withValues(alpha: 0.12),
             ),
           ),
           child: widget.child,

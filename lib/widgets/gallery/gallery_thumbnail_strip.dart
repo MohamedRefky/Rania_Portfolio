@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../core/theme/app_colors.dart';
 
 class GalleryThumbnailStrip extends StatelessWidget {
@@ -82,7 +81,7 @@ class _ThumbnailItemState extends State<_ThumbnailItem> {
             border: Border.all(
               color: widget.isSelected
                   ? AppColors.accent
-                  : Colors.white.withValues(alpha: 0.1),
+                  : AppColors.primary.withValues(alpha: 0.1),
               width: widget.isSelected ? 2.5 : 1.0,
             ),
             boxShadow: widget.isSelected
@@ -104,10 +103,10 @@ class _ThumbnailItemState extends State<_ThumbnailItem> {
                 widget.imagePath,
                 fit: BoxFit.cover,
                 errorBuilder: (_, _, _) => Container(
-                  color: Colors.white.withValues(alpha: 0.05),
-                  child: const Icon(
+                  color: AppColors.primary.withValues(alpha: 0.05),
+                  child: Icon(
                     Icons.broken_image_rounded,
-                    color: Colors.white24,
+                    color: AppColors.primary.withValues(alpha: 0.25),
                     size: 20,
                   ),
                 ),

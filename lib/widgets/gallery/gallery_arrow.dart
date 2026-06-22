@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/theme/app_colors.dart';
 
 class GalleryArrow extends StatefulWidget {
   final IconData icon;
@@ -31,13 +32,13 @@ class _GalleryArrowState extends State<GalleryArrow> {
           height: 50,
           decoration: BoxDecoration(
             color: _isHovered
-                ? Colors.white.withValues(alpha: 0.18)
-                : Colors.white.withValues(alpha: 0.06),
+                ? AppColors.primary.withValues(alpha: 0.18)
+                : AppColors.primary.withValues(alpha: 0.06),
             shape: BoxShape.circle,
             border: Border.all(
               color: _isHovered
-                  ? Colors.white.withValues(alpha: 0.3)
-                  : Colors.white.withValues(alpha: 0.1),
+                  ? AppColors.primary.withValues(alpha: 0.3)
+                  : AppColors.primary.withValues(alpha: 0.1),
               width: 1.5,
             ),
             boxShadow: _isHovered
@@ -53,7 +54,7 @@ class _GalleryArrowState extends State<GalleryArrow> {
           child: Center(
             child: Icon(
               widget.icon,
-              color: _isHovered ? Colors.white : Colors.white.withValues(alpha: 0.75),
+              color: _isHovered ? AppColors.primary : AppColors.primary.withValues(alpha: 0.75),
               size: 20,
             ),
           ),

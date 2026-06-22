@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/theme/app_colors.dart';
 
 class GalleryTechChips extends StatelessWidget {
   final List<String> technologies;
@@ -17,16 +18,16 @@ class GalleryTechChips extends StatelessWidget {
               (tech) => Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.08),
+                  color: AppColors.primary.withValues(alpha: 0.08),
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
-                    color: Colors.white.withValues(alpha: 0.15),
+                    color: AppColors.primary.withValues(alpha: 0.15),
                   ),
                 ),
                 child: Text(
                   tech,
-                  style: const TextStyle(
-                    color: Colors.white70,
+                  style: TextStyle(
+                    color: AppColors.primary.withValues(alpha: 0.7),
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
                   ),
@@ -48,25 +49,25 @@ class GalleryImageError extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(24),
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.04),
+          color: AppColors.primary.withValues(alpha: 0.04),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: Colors.white.withValues(alpha: 0.1),
+            color: AppColors.primary.withValues(alpha: 0.1),
           ),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Icon(
+            Icon(
               Icons.broken_image_outlined,
-              color: Colors.white38,
+              color: AppColors.primary.withValues(alpha: 0.38),
               size: 48,
             ),
             const SizedBox(height: 12),
             Text(
               'Image unavailable',
               style: TextStyle(
-                color: Colors.white.withValues(alpha: 0.6),
+                color: AppColors.primary.withValues(alpha: 0.6),
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
               ),
@@ -83,28 +84,39 @@ class GalleryZoomHint extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = AppColors.isDark;
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: Colors.black.withValues(alpha: 0.6),
+        color: isDark ? Colors.black.withValues(alpha: 0.6) : Colors.white.withValues(alpha: 0.85),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: Colors.white.withValues(alpha: 0.12),
+          color: AppColors.primary.withValues(alpha: 0.12),
         ),
+        boxShadow: isDark
+            ? []
+            : [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.05),
+                  blurRadius: 8,
+                  offset: const Offset(0, 2),
+                ),
+              ],
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(
+          Icon(
             Icons.zoom_in_rounded,
-            color: Colors.white70,
+            color: isDark ? Colors.white70 : AppColors.primary.withValues(alpha: 0.8),
             size: 14,
           ),
           const SizedBox(width: 6),
           Text(
             'Tap to zoom',
             style: TextStyle(
-              color: Colors.white.withValues(alpha: 0.8),
+              color: isDark ? Colors.white.withValues(alpha: 0.8) : AppColors.primary.withValues(alpha: 0.85),
               fontSize: 12,
               fontWeight: FontWeight.w500,
             ),

@@ -98,16 +98,22 @@ class _ProjectGalleryPageState extends State<ProjectGalleryPage> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           gradient: RadialGradient(
-            center: Alignment(0, -0.5),
+            center: const Alignment(0, -0.5),
             radius: 1.4,
-            colors: [
-              Color(0xFF0C1930), // tint of electric dark navy
-              Color(0xFF050A14), // darker navy
-              Color(0xFF020408), // pitch black
-            ],
-            stops: [0.0, 0.55, 1.0],
+            colors: AppColors.isDark
+                ? const [
+                    Color(0xFF0C1930), // tint of electric dark navy
+                    Color(0xFF050A14), // darker navy
+                    Color(0xFF020408), // pitch black
+                  ]
+                : const [
+                    Color(0xFFFAFAF8), // light sand base
+                    Color(0xFFF5EFEB), // soft warm sand
+                    Color(0xFFEBE0D6), // warm sand edge
+                  ],
+            stops: const [0.0, 0.55, 1.0],
           ),
         ),
         child: SafeArea(
