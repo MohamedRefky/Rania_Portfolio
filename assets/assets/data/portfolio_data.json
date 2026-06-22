@@ -177,6 +177,45 @@
       ],
       "liveUrl": null,
       "githubUrl": null
+    },
+    {
+      "title": "Management Center | Architectural Shop Drawings",
+      "description": "Produced detailed architectural working and shop drawings for a Management Center project, covering plans, sections, elevations, and construction details. Delivered accurate and coordinated documentation to support project execution and site implementation.",
+      "imageUrl": "assets/shop_drawing/5.PNG",
+      "technologies": [
+        "AutoCAD",
+        "Revit",
+        "Shop Drawings",
+        "BIM"
+      ],
+      "liveUrl": null,
+      "githubUrl": null,
+      "innerImages": [
+        "assets/shop_drawing/1.PNG",
+        "assets/shop_drawing/2.PNG",
+        "assets/shop_drawing/3.PNG",
+        "assets/shop_drawing/4.PNG",
+        "assets/shop_drawing/5.PNG",
+        "assets/shop_drawing/6.PNG",
+        "assets/shop_drawing/7.PNG",
+        "assets/shop_drawing/8.PNG",
+        "assets/shop_drawing/9.PNG",
+        "assets/shop_drawing/10.PNG",
+        "assets/shop_drawing/11.PNG",
+        "assets/shop_drawing/12.PNG",
+        "assets/shop_drawing/13.PNG",
+        "assets/shop_drawing/14.PNG",
+        "assets/shop_drawing/15.PNG",
+        "assets/shop_drawing/16.PNG",
+        "assets/shop_drawing/17.PNG",
+        "assets/shop_drawing/18.PNG",
+        "assets/shop_drawing/19.PNG",
+        "assets/shop_drawing/20.PNG",
+        "assets/shop_drawing/21.PNG",
+        "assets/shop_drawing/22.PNG",
+        "assets/shop_drawing/23.PNG",
+        "assets/shop_drawing/24.PNG"
+      ]
     }
   ],
   "education": [
