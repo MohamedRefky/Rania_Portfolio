@@ -1,12 +1,14 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/theme/app_colors.dart';
+import '../../pages/project_details_page.dart';
 import '../buttons/outline_button.dart';
 import '../buttons/primary_button.dart';
-import '../../pages/project_details_page.dart';
 
 class ProjectCard extends StatefulWidget {
   final String title;
@@ -45,6 +47,31 @@ class _ProjectCardState extends State<ProjectCard> {
     }
   }
 
+  /// Resolves image widget from asset path or network URL.
+  Widget _buildImage(BoxFit fit, {double? width}) {
+    if (widget.imageUrl.startsWith('http')) {
+      return Image.network(widget.imageUrl, fit: fit, width: width);
+    }
+    return Image.asset(widget.imageUrl, fit: fit, width: width);
+  }
+
+  /// Navigates to project details page.
+  void _openProjectDetails() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ProjectDetailsPage(
+          title: widget.title,
+          description: widget.description,
+          innerImages: widget.innerImages!,
+        ),
+      ),
+    );
+  }
+
+  bool get _hasInnerImages =>
+      widget.innerImages != null && widget.innerImages!.isNotEmpty;
+
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
@@ -52,7 +79,7 @@ class _ProjectCardState extends State<ProjectCard> {
       onExit: (_) => setState(() => isHovered = false),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
-        height: 445,
+
         decoration: BoxDecoration(
           color: AppColors.cardBackground,
           borderRadius: BorderRadius.circular(16),
@@ -94,234 +121,10 @@ class _ProjectCardState extends State<ProjectCard> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Image Section — fixed height
-            SizedBox(
-              height: 200,
-              width: double.infinity,
-              child: Stack(
-                fit: StackFit.expand,
-                children: [
-                  // The actual project image — vivid, no darkening
-                  GestureDetector(
-                    onTap: () {
-                      if (widget.innerImages != null && widget.innerImages!.isNotEmpty) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ProjectDetailsPage(
-                              title: widget.title,
-                              description: widget.description,
-                              innerImages: widget.innerImages!,
-                            ),
-                          ),
-                        );
-                        return;
-                      }
+            // ── Image Section ──────────────────────────────────
+            _buildImageSection(),
 
-                      final isMobile = ResponsiveBreakpoints.of(
-                        context,
-                      ).isMobile;
-                      if (isMobile && widget.liveDemoUrl != null) {
-                        _launchUrl(widget.liveDemoUrl);
-                      }
-                    },
-                    child: AnimatedScale(
-                      duration: const Duration(milliseconds: 500),
-                      scale: isHovered ? 1.08 : 1.0,
-                      child: widget.imageUrl.isEmpty
-                          ? Container(
-                              color: AppColors.primary.withValues(alpha: 0.1),
-                              child: Center(
-                                child: Icon(
-                                  Icons.domain,
-                                  size: 64,
-                                  color: AppColors.primary.withValues(alpha: 0.3),
-                                ),
-                              ),
-                            )
-                          : widget.imageUrl.startsWith('http')
-                              ? Image.network(widget.imageUrl, fit: BoxFit.cover)
-                              : Image.asset(widget.imageUrl, fit: BoxFit.cover),
-                    ),
-                  ),
-                  // Subtle bottom gradient — doesn't wash out image
-                  Positioned(
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    child: Container(
-                      height: 80,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.bottomCenter,
-                          end: Alignment.topCenter,
-                          colors: [
-                            Colors.black.withValues(alpha: 0.55),
-                            Colors.transparent,
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  // GitHub button — appears on hover (desktop) or always on mobile
-                  AnimatedOpacity(
-                    duration: const Duration(milliseconds: 300),
-                    opacity: isHovered ? 1.0 : 0.0,
-                    child: Container(
-                      color: Colors.black.withValues(alpha: 0.35),
-                      child: Center(
-                        child: Wrap(
-                          spacing: 12,
-                          runSpacing: 12,
-                          alignment: WrapAlignment.center,
-                          children: [
-                            if (widget.innerImages != null && widget.innerImages!.isNotEmpty)
-                              PrimaryButton(
-                                text: 'Project Details',
-                                icon: const Icon(Icons.photo_library, size: 16),
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => ProjectDetailsPage(
-                                        title: widget.title,
-                                        description: widget.description,
-                                        innerImages: widget.innerImages!,
-                                      ),
-                                    ),
-                                  );
-                                },
-                              ),
-                            if (widget.githubUrl != null)
-                              OutlineButton(
-                                text: 'GitHub',
-                                icon: const FaIcon(
-                                  FontAwesomeIcons.github,
-                                  size: 16,
-                                ),
-                                onPressed: () => _launchUrl(widget.githubUrl),
-                              ),
-                            if (widget.liveDemoUrl != null)
-                              PrimaryButton(
-                                text: 'Live Demo',
-                                icon: const Icon(Icons.open_in_new, size: 16),
-                                onPressed: () => _launchUrl(widget.liveDemoUrl),
-                              ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  // Mobile: icon buttons at bottom right (always visible)
-                  Positioned(
-                    bottom: 10,
-                    right: 12,
-                    child: Builder(
-                      builder: (context) {
-                        final isMobile = ResponsiveBreakpoints.of(context).isMobile;
-                        if (!isMobile) return const SizedBox.shrink();
-                        return Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            if (widget.innerImages != null && widget.innerImages!.isNotEmpty)
-                              Padding(
-                                padding: const EdgeInsets.only(left: 8.0),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => ProjectDetailsPage(
-                                          title: widget.title,
-                                          description: widget.description,
-                                          innerImages: widget.innerImages!,
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                  child: Container(
-                                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                                    decoration: BoxDecoration(
-                                      color: AppColors.primary,
-                                      borderRadius: BorderRadius.circular(20),
-                                      border: Border.all(color: Colors.white.withValues(alpha: 0.3)),
-                                    ),
-                                    child: const Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Icon(Icons.photo_library, size: 14, color: Colors.white),
-                                        SizedBox(width: 6),
-                                        Text(
-                                          'Details',
-                                          style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            if (widget.liveDemoUrl != null)
-                              Padding(
-                                padding: const EdgeInsets.only(left: 8.0),
-                                child: GestureDetector(
-                                  onTap: () => _launchUrl(widget.liveDemoUrl),
-                                  child: Container(
-                                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                                    decoration: BoxDecoration(
-                                      color: AppColors.primary,
-                                      borderRadius: BorderRadius.circular(20),
-                                      border: Border.all(color: Colors.white.withValues(alpha: 0.3)),
-                                    ),
-                                    child: const Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Icon(Icons.open_in_new, size: 14, color: Colors.white),
-                                        SizedBox(width: 6),
-                                        Text(
-                                          'View',
-                                          style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            if (widget.githubUrl != null)
-                              Padding(
-                                padding: const EdgeInsets.only(left: 8.0),
-                                child: GestureDetector(
-                                  onTap: () => _launchUrl(widget.githubUrl),
-                                  child: Container(
-                                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                                    decoration: BoxDecoration(
-                                      color: Colors.black.withValues(alpha: 0.6),
-                                      borderRadius: BorderRadius.circular(20),
-                                      border: Border.all(color: Colors.white.withValues(alpha: 0.3)),
-                                    ),
-                                    child: const Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        FaIcon(FontAwesomeIcons.github, size: 14, color: Colors.white),
-                                        SizedBox(width: 6),
-                                        Text(
-                                          'GitHub',
-                                          style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                          ],
-                        );
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            // Info Section — fixed height layout
+            // ── Info Section ──────────────────────────────────
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
@@ -332,7 +135,7 @@ class _ProjectCardState extends State<ProjectCard> {
                     height: 52,
                     child: Text(
                       widget.title,
-                      style:  TextStyle(
+                      style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: AppColors.textPrimary,
@@ -347,7 +150,7 @@ class _ProjectCardState extends State<ProjectCard> {
                     height: 60,
                     child: Text(
                       widget.description,
-                      style:  TextStyle(
+                      style: TextStyle(
                         fontSize: 14,
                         color: AppColors.textSecondary,
                         height: 1.4,
@@ -370,17 +173,17 @@ class _ProjectCardState extends State<ProjectCard> {
                                 vertical: 6,
                               ),
                               decoration: BoxDecoration(
-                                color: AppColors.primary.withValues(alpha: 0.1),
+                                color:
+                                    AppColors.primary.withValues(alpha: 0.1),
                                 borderRadius: BorderRadius.circular(20),
                                 border: Border.all(
-                                  color: AppColors.primary.withValues(
-                                    alpha: 0.3,
-                                  ),
+                                  color:
+                                      AppColors.primary.withValues(alpha: 0.3),
                                 ),
                               ),
                               child: Text(
                                 tech,
-                                style:  TextStyle(
+                                style: TextStyle(
                                   fontSize: 12,
                                   color: AppColors.secondary,
                                   fontWeight: FontWeight.w500,
@@ -395,6 +198,208 @@ class _ProjectCardState extends State<ProjectCard> {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  /// Builds image area: full-width, no crop, dynamic height.
+  Widget _buildImageSection() {
+    return ConstrainedBox(
+      constraints: const BoxConstraints(
+        minHeight: 160,
+        maxHeight: 260,
+      ),
+      child: Stack(
+        fit: StackFit.passthrough,
+        children: [
+          // ─── Layer 1: Full-width image (no crop, no side gaps) ───
+          GestureDetector(
+            onTap: () {
+              if (_hasInnerImages) {
+                _openProjectDetails();
+                return;
+              }
+              final isMobile = ResponsiveBreakpoints.of(context).isMobile;
+              if (isMobile && widget.liveDemoUrl != null) {
+                _launchUrl(widget.liveDemoUrl);
+              }
+            },
+            child: ClipRect(
+              child: AnimatedScale(
+                duration: const Duration(milliseconds: 500),
+                scale: isHovered ? 1.05 : 1.0,
+                child: widget.imageUrl.isEmpty
+                    ? Container(
+                        height: 200,
+                        color: AppColors.primary.withValues(alpha: 0.1),
+                        child: Center(
+                          child: Icon(
+                            Icons.domain,
+                            size: 64,
+                            color: AppColors.primary.withValues(alpha: 0.3),
+                          ),
+                        ),
+                      )
+                    : _buildImage(BoxFit.fitWidth, width: double.infinity),
+              ),
+            ),
+          ),
+
+          // ─── Layer 3: Subtle bottom gradient ───
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              height: 80,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  colors: [
+                    Colors.black.withValues(alpha: 0.55),
+                    Colors.transparent,
+                  ],
+                ),
+              ),
+            ),
+          ),
+
+          // ─── Layer 4: Hover overlay (desktop) ───
+          Positioned.fill(
+            child: AnimatedOpacity(
+              duration: const Duration(milliseconds: 300),
+              opacity: isHovered ? 1.0 : 0.0,
+              child: Container(
+                color: Colors.black.withValues(alpha: 0.35),
+                child: Center(
+                  child: Wrap(
+                    spacing: 12,
+                    runSpacing: 12,
+                    alignment: WrapAlignment.center,
+                    children: [
+                      if (_hasInnerImages)
+                        PrimaryButton(
+                          text: 'Project Details',
+                          icon: const Icon(Icons.photo_library, size: 16),
+                          onPressed: _openProjectDetails,
+                        ),
+                      if (widget.githubUrl != null)
+                        OutlineButton(
+                          text: 'GitHub',
+                          icon: const FaIcon(
+                            FontAwesomeIcons.github,
+                            size: 16,
+                          ),
+                          onPressed: () => _launchUrl(widget.githubUrl),
+                        ),
+                      if (widget.liveDemoUrl != null)
+                        PrimaryButton(
+                          text: 'Live Demo',
+                          icon: const Icon(Icons.open_in_new, size: 16),
+                          onPressed: () => _launchUrl(widget.liveDemoUrl),
+                        ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+          // ─── Layer 5: Mobile action buttons (always visible) ───
+          Positioned(
+            bottom: 10,
+            right: 12,
+            child: Builder(
+              builder: (context) {
+                final isMobile =
+                    ResponsiveBreakpoints.of(context).isMobile;
+                if (!isMobile) return const SizedBox.shrink();
+                return Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (_hasInnerImages)
+                      _MobileActionChip(
+                        icon: Icons.photo_library,
+                        label: 'Details',
+                        color: AppColors.primary,
+                        onTap: _openProjectDetails,
+                      ),
+                    if (widget.liveDemoUrl != null)
+                      _MobileActionChip(
+                        icon: Icons.open_in_new,
+                        label: 'View',
+                        color: AppColors.primary,
+                        onTap: () => _launchUrl(widget.liveDemoUrl),
+                      ),
+                    if (widget.githubUrl != null)
+                      _MobileActionChip(
+                        faIcon: FontAwesomeIcons.github,
+                        label: 'GitHub',
+                        color: Colors.black.withValues(alpha: 0.6),
+                        onTap: () => _launchUrl(widget.githubUrl),
+                      ),
+                  ],
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Small action chip for mobile bottom-right overlay.
+class _MobileActionChip extends StatelessWidget {
+  final IconData? icon;
+  final dynamic faIcon;
+  final String label;
+  final Color color;
+  final VoidCallback onTap;
+
+  const _MobileActionChip({
+    this.icon,
+    this.faIcon,
+    required this.label,
+    required this.color,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0),
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(
+              color: Colors.white.withValues(alpha: 0.3),
+            ),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (icon != null)
+                Icon(icon, size: 14, color: Colors.white),
+              if (faIcon != null)
+                FaIcon(faIcon, size: 14, color: Colors.white),
+              const SizedBox(width: 6),
+              Text(
+                label,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
