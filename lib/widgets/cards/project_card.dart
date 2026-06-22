@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -55,15 +53,16 @@ class _ProjectCardState extends State<ProjectCard> {
     return Image.asset(widget.imageUrl, fit: fit, width: width);
   }
 
-  /// Navigates to project details page.
+  /// Navigates to project gallery page.
   void _openProjectDetails() {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ProjectDetailsPage(
+        builder: (context) => ProjectGalleryPage(
           title: widget.title,
           description: widget.description,
-          innerImages: widget.innerImages!,
+          technologies: widget.technologies,
+          images: widget.innerImages!,
         ),
       ),
     );
@@ -173,12 +172,12 @@ class _ProjectCardState extends State<ProjectCard> {
                                 vertical: 6,
                               ),
                               decoration: BoxDecoration(
-                                color:
-                                    AppColors.primary.withValues(alpha: 0.1),
+                                color: AppColors.primary.withValues(alpha: 0.1),
                                 borderRadius: BorderRadius.circular(20),
                                 border: Border.all(
-                                  color:
-                                      AppColors.primary.withValues(alpha: 0.3),
+                                  color: AppColors.primary.withValues(
+                                    alpha: 0.3,
+                                  ),
                                 ),
                               ),
                               child: Text(
@@ -206,10 +205,7 @@ class _ProjectCardState extends State<ProjectCard> {
   /// Builds image area: full-width, no crop, dynamic height.
   Widget _buildImageSection() {
     return ConstrainedBox(
-      constraints: const BoxConstraints(
-        minHeight: 160,
-        maxHeight: 260,
-      ),
+      constraints: const BoxConstraints(minHeight: 160, maxHeight: 260),
       child: Stack(
         fit: StackFit.passthrough,
         children: [
@@ -246,6 +242,54 @@ class _ProjectCardState extends State<ProjectCard> {
             ),
           ),
 
+          // ─── Layer 2: Floating image count badge (top right) ───
+          if (_hasInnerImages)
+            Positioned(
+              top: 12,
+              right: 12,
+              child: AnimatedOpacity(
+                duration: const Duration(milliseconds: 300),
+                opacity:
+                    (ResponsiveBreakpoints.of(context).isMobile || isHovered)
+                    ? 1.0
+                    : 0.0,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 6,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withValues(alpha: 0.65),
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(
+                      color: Colors.white.withValues(alpha: 0.15),
+                      width: 1.0,
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(
+                        Icons.photo_library,
+                        color: Colors.white,
+                        size: 12,
+                      ),
+                      const SizedBox(width: 6),
+                      Text(
+                        '${widget.innerImages!.length} Images',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 11,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 0.3,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+
           // ─── Layer 3: Subtle bottom gradient ───
           Positioned(
             bottom: 0,
@@ -281,17 +325,14 @@ class _ProjectCardState extends State<ProjectCard> {
                     children: [
                       if (_hasInnerImages)
                         PrimaryButton(
-                          text: 'Project Details',
+                          text: 'View Details',
                           icon: const Icon(Icons.photo_library, size: 16),
                           onPressed: _openProjectDetails,
                         ),
                       if (widget.githubUrl != null)
                         OutlineButton(
                           text: 'GitHub',
-                          icon: const FaIcon(
-                            FontAwesomeIcons.github,
-                            size: 16,
-                          ),
+                          icon: const FaIcon(FontAwesomeIcons.github, size: 16),
                           onPressed: () => _launchUrl(widget.githubUrl),
                         ),
                       if (widget.liveDemoUrl != null)
@@ -313,8 +354,7 @@ class _ProjectCardState extends State<ProjectCard> {
             right: 12,
             child: Builder(
               builder: (context) {
-                final isMobile =
-                    ResponsiveBreakpoints.of(context).isMobile;
+                final isMobile = ResponsiveBreakpoints.of(context).isMobile;
                 if (!isMobile) return const SizedBox.shrink();
                 return Row(
                   mainAxisSize: MainAxisSize.min,
@@ -322,7 +362,7 @@ class _ProjectCardState extends State<ProjectCard> {
                     if (_hasInnerImages)
                       _MobileActionChip(
                         icon: Icons.photo_library,
-                        label: 'Details',
+                        label: 'Gallery',
                         color: AppColors.primary,
                         onTap: _openProjectDetails,
                       ),
@@ -378,17 +418,13 @@ class _MobileActionChip extends StatelessWidget {
           decoration: BoxDecoration(
             color: color,
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(
-              color: Colors.white.withValues(alpha: 0.3),
-            ),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.3)),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              if (icon != null)
-                Icon(icon, size: 14, color: Colors.white),
-              if (faIcon != null)
-                FaIcon(faIcon, size: 14, color: Colors.white),
+              if (icon != null) Icon(icon, size: 14, color: Colors.white),
+              if (faIcon != null) FaIcon(faIcon, size: 14, color: Colors.white),
               const SizedBox(width: 6),
               Text(
                 label,
