@@ -101,8 +101,7 @@
         "ISO 19650",
         "AutoCAD"
       ],
-      "liveUrl": "https://canva.link/30t87xf29t4q181",
-      "githubUrl": null
+      "liveUrl": "https://canva.link/30t87xf29t4q181"
     },
     {
       "title": "Residential Villa | BIM Architectural Project",
@@ -113,7 +112,6 @@
         "BIM"
       ],
       "liveUrl": null,
-      "githubUrl": null,
       "innerImages": [
         "assets/VILA_PROJECT/1_RANIA ABDLBARY5_29200652.png",
         "assets/VILA_PROJECT/2_plan_29200652.png",
@@ -126,59 +124,6 @@
       ]
     },
     {
-      "title": "Nano Building – Faculty of Science, Ain Shams University",
-      "description": "Large-scale academic building developed in collaboration with IBS. Contributed to BIM model development, site coordination, and finishing works supervision.",
-      "imageUrl": "assets/nano/project_nano_building_background.jpeg",
-      "technologies": [
-        "Revit",
-        "Navisworks",
-        "AutoCAD",
-        "ACC"
-      ],
-      "liveUrl": null,
-      "githubUrl": null,
-      "innerImages": [
-        "assets/nano/nano_project.png"
-      ]
-    },
-    {
-      "title": "Magic Land Project",
-      "description": "Commercial project executed with Kayan Company. Involved coordination with contractors and stakeholders, site supervision, and BIM-based documentation.",
-      "imageUrl": "assets/images/project_magic_land.png",
-      "technologies": [
-        "Revit",
-        "AutoCAD",
-        "Navisworks"
-      ],
-      "liveUrl": null,
-      "githubUrl": null
-    },
-    {
-      "title": "Cosmic Village School",
-      "description": "Educational facility in 6th of October City, developed with Mobica. Managed finishing works and coordinated multidisciplinary teams on-site.",
-      "imageUrl": "assets/images/project_cosmic_school.png",
-      "technologies": [
-        "Revit",
-        "AutoCAD",
-        "Navisworks"
-      ],
-      "liveUrl": null,
-      "githubUrl": null
-    },
-    {
-      "title": "MAMINA'S Restaurant – Palm Hills Compound",
-      "description": "Commercial F&B interior architecture project in 6th of October, Cairo. Contributed to design detailing and finishing works management.",
-      "imageUrl": "assets/images/project_mamina_restaurant.png",
-      "technologies": [
-        "Revit",
-        "AutoCAD",
-        "3Ds Max",
-        "Corona"
-      ],
-      "liveUrl": null,
-      "githubUrl": null
-    },
-    {
       "title": "Management Center | Architectural Shop Drawings",
       "description": "Produced detailed architectural working and shop drawings for a Management Center project, covering plans, sections, elevations, and construction details. Delivered accurate and coordinated documentation to support project execution and site implementation.",
       "imageUrl": "assets/shop_drawing/5.PNG",
@@ -189,7 +134,6 @@
         "BIM"
       ],
       "liveUrl": null,
-      "githubUrl": null,
       "innerImages": [
         "assets/shop_drawing/1.PNG",
         "assets/shop_drawing/2.PNG",
@@ -228,7 +172,6 @@
         "Form Development"
       ],
       "liveUrl": null,
-      "githubUrl": null,
       "innerImages": [
         "assets/TOWER/1.jpg",
         "assets/TOWER/2.jpg",
@@ -239,6 +182,55 @@
         "assets/TOWER/7.png",
         "assets/TOWER/8.jpg"
       ]
+    },
+    {
+      "title": "Nano Building – Faculty of Science, Ain Shams University",
+      "description": "Large-scale academic building developed in collaboration with IBS. Contributed to BIM model development, site coordination, and finishing works supervision.",
+      "imageUrl": "assets/nano/project_nano_building_background.jpeg",
+      "technologies": [
+        "Revit",
+        "Navisworks",
+        "AutoCAD",
+        "ACC"
+      ],
+      "liveUrl": null,
+      "innerImages": [
+        "assets/nano/nano_project.png"
+      ]
+    },
+    {
+      "title": "Magic Land Project",
+      "description": "Commercial project executed with Kayan Company. Involved coordination with contractors and stakeholders, site supervision, and BIM-based documentation.",
+      "imageUrl": "assets/images/project_magic_land.png",
+      "technologies": [
+        "Revit",
+        "AutoCAD",
+        "Navisworks"
+      ],
+      "liveUrl": null
+    },
+    {
+      "title": "Cosmic Village School",
+      "description": "Educational facility in 6th of October City, developed with Mobica. Managed finishing works and coordinated multidisciplinary teams on-site.",
+      "imageUrl": "assets/images/project_cosmic_school.png",
+      "technologies": [
+        "Revit",
+        "AutoCAD",
+        "Navisworks"
+      ],
+      "liveUrl": null
+    },
+    {
+      "title": "MAMINA'S Restaurant – Palm Hills Compound",
+      "description": "Commercial F&B interior architecture project in 6th of October, Cairo. Contributed to design detailing and finishing works management.",
+      "imageUrl": "assets/images/project_mamina_restaurant.png",
+      "technologies": [
+        "Revit",
+        "AutoCAD",
+        "3Ds Max",
+        "Corona"
+      ],
+      "liveUrl": null
     }
   ],
   "education": [

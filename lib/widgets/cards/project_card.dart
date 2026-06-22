@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/theme/app_colors.dart';
 import '../../pages/project_details_page.dart';
-import '../buttons/outline_button.dart';
 import '../buttons/primary_button.dart';
 
 class ProjectCard extends StatefulWidget {
@@ -13,8 +11,6 @@ class ProjectCard extends StatefulWidget {
   final String description;
   final String imageUrl;
   final List<String> technologies;
-  final String? playStoreUrl;
-  final String? githubUrl;
   final String? liveDemoUrl;
   final List<String>? innerImages;
 
@@ -24,8 +20,6 @@ class ProjectCard extends StatefulWidget {
     required this.description,
     required this.imageUrl,
     required this.technologies,
-    this.playStoreUrl,
-    this.githubUrl,
     this.liveDemoUrl,
     this.innerImages,
   });
@@ -329,12 +323,7 @@ class _ProjectCardState extends State<ProjectCard> {
                           icon: const Icon(Icons.photo_library, size: 16),
                           onPressed: _openProjectDetails,
                         ),
-                      if (widget.githubUrl != null)
-                        OutlineButton(
-                          text: 'GitHub',
-                          icon: const FaIcon(FontAwesomeIcons.github, size: 16),
-                          onPressed: () => _launchUrl(widget.githubUrl),
-                        ),
+
                       if (widget.liveDemoUrl != null)
                         PrimaryButton(
                           text: 'Live Demo',
@@ -373,13 +362,6 @@ class _ProjectCardState extends State<ProjectCard> {
                         color: AppColors.primary,
                         onTap: () => _launchUrl(widget.liveDemoUrl),
                       ),
-                    if (widget.githubUrl != null)
-                      _MobileActionChip(
-                        faIcon: FontAwesomeIcons.github,
-                        label: 'GitHub',
-                        color: Colors.black.withValues(alpha: 0.6),
-                        onTap: () => _launchUrl(widget.githubUrl),
-                      ),
                   ],
                 );
               },
@@ -393,15 +375,13 @@ class _ProjectCardState extends State<ProjectCard> {
 
 /// Small action chip for mobile bottom-right overlay.
 class _MobileActionChip extends StatelessWidget {
-  final IconData? icon;
-  final dynamic faIcon;
+  final IconData icon;
   final String label;
   final Color color;
   final VoidCallback onTap;
 
   const _MobileActionChip({
-    this.icon,
-    this.faIcon,
+    required this.icon,
     required this.label,
     required this.color,
     required this.onTap,
@@ -423,8 +403,7 @@ class _MobileActionChip extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              if (icon != null) Icon(icon, size: 14, color: Colors.white),
-              if (faIcon != null) FaIcon(faIcon, size: 14, color: Colors.white),
+              Icon(icon, size: 14, color: Colors.white),
               const SizedBox(width: 6),
               Text(
                 label,
