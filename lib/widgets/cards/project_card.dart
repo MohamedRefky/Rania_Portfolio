@@ -42,9 +42,19 @@ class _ProjectCardState extends State<ProjectCard> {
   /// Resolves image widget from asset path or network URL.
   Widget _buildImage(BoxFit fit, {double? width}) {
     if (widget.imageUrl.startsWith('http')) {
-      return Image.network(widget.imageUrl, fit: fit, width: width);
+      return Image.network(
+        widget.imageUrl,
+        fit: fit,
+        width: width,
+        cacheWidth: 800,
+      );
     }
-    return Image.asset(widget.imageUrl, fit: fit, width: width);
+    return Image.asset(
+      widget.imageUrl,
+      fit: fit,
+      width: width,
+      cacheWidth: 800,
+    );
   }
 
   /// Navigates to project gallery page.
@@ -352,14 +362,14 @@ class _ProjectCardState extends State<ProjectCard> {
                       _MobileActionChip(
                         icon: Icons.photo_library,
                         label: 'Gallery',
-                        color: AppColors.primary,
+                        color: AppColors.cardBackground,
                         onTap: _openProjectDetails,
                       ),
                     if (widget.liveDemoUrl != null)
                       _MobileActionChip(
                         icon: Icons.open_in_new,
                         label: 'View',
-                        color: AppColors.primary,
+                        color: AppColors.cardBackground,
                         onTap: () => _launchUrl(widget.liveDemoUrl),
                       ),
                   ],
@@ -398,17 +408,24 @@ class _MobileActionChip extends StatelessWidget {
           decoration: BoxDecoration(
             color: color,
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: Colors.white.withValues(alpha: 0.3)),
+            border: Border.all(
+              color: AppColors.textPrimary.withValues(alpha: 0.15),
+              width: 1.0,
+            ),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(icon, size: 14, color: Colors.white),
+              Icon(
+                icon,
+                size: 14,
+                color: AppColors.textPrimary,
+              ),
               const SizedBox(width: 6),
               Text(
                 label,
-                style: const TextStyle(
-                  color: Colors.white,
+                style: TextStyle(
+                  color: AppColors.textPrimary,
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
                 ),

@@ -102,6 +102,7 @@ class _ThumbnailItemState extends State<_ThumbnailItem> {
               child: Image.asset(
                 widget.imagePath,
                 fit: BoxFit.cover,
+                cacheWidth: 150,
                 errorBuilder: (_, _, _) => Container(
                   color: AppColors.primary.withValues(alpha: 0.05),
                   child: Icon(

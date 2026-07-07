@@ -232,6 +232,7 @@ class _ProjectGalleryPageState extends State<ProjectGalleryPage> {
                         child: Image.asset(
                           widget.images[index],
                           fit: BoxFit.contain,
+                          cacheWidth: 1600,
                           errorBuilder: (_, _, _) => const GalleryImageError(),
                         ),
                       ),
