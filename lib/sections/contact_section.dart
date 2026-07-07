@@ -115,12 +115,75 @@ class ContactSection extends StatelessWidget {
               .fadeIn(delay: 1000.ms, duration: 500.ms)
               .scale(begin: const Offset(0.8, 0.8)),
           const SizedBox(height: 80),
-          Text(
-            'Designed & Built by ${AppConstants.devName}',
-            style:  TextStyle(
-              color: AppColors.textSecondary,
-              fontSize: 14,
-            ),
+          Divider(
+            color: AppColors.gradientElement.withValues(alpha: 0.5),
+            thickness: 1,
+            indent: isMobile ? 40 : 120,
+            endIndent: isMobile ? 40 : 120,
+          ),
+          const SizedBox(height: 32),
+          Column(
+            children: [
+              Text(
+                'Designed & Built by Mohamed Refky',
+                style: TextStyle(
+                  color: AppColors.textSecondary,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 1.0,
+                ),
+              ),
+              const SizedBox(height: 16),
+              InkWell(
+                onTap: () => _launchUrl('https://wa.me/201019964918'),
+                borderRadius: BorderRadius.circular(30),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: AppColors.cardBackground,
+                    border: Border.all(
+                      color: AppColors.accent.withValues(alpha: 0.3),
+                      width: 1,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.accent.withValues(alpha: 0.05),
+                        blurRadius: 10,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(6),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF25D366).withValues(alpha: 0.15),
+                          shape: BoxShape.circle,
+                        ),
+                        child: const FaIcon(
+                          FontAwesomeIcons.whatsapp,
+                          size: 16,
+                          color: Color(0xFF25D366),
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        'Contact Developer',
+                        style: TextStyle(
+                          color: AppColors.textPrimary,
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 0.5,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 24),
         ],

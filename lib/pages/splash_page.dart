@@ -4,6 +4,7 @@ import '../core/constants/app_constants.dart';
 import '../core/data/portfolio_data.dart';
 import '../core/theme/app_colors.dart';
 import '../core/utils/splash_service.dart';
+import '../widgets/animations/animated_gradient_background.dart';
 import 'home_page.dart';
 
 class SplashPage extends StatefulWidget {
@@ -48,11 +49,11 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background, // Matches your web splash
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+      body: AnimatedGradientBackground(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
             // Profile Image with Glow
             Container(
                   width: 150,
@@ -113,6 +114,7 @@ class _SplashPageState extends State<SplashPage> {
           ],
         ),
       ),
+     ),
     );
   }
 }
