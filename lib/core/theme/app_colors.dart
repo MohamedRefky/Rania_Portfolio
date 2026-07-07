@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static final ValueNotifier<ThemeMode> themeModeNotifier =
-      ValueNotifier<ThemeMode>(ThemeMode.light);
+      ValueNotifier<ThemeMode>(ThemeMode.dark);
 
   static bool get isDark => themeModeNotifier.value == ThemeMode.dark;
 

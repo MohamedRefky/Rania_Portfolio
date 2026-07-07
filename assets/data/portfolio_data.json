@@ -5,7 +5,7 @@
     "description": "BIM-focused Architectural Engineer with 8+ years of experience in architectural design, site supervision, and finishing works management.",
     "about": "Architectural Engineer with 8+ years of experience across governmental and commercial projects. Specialized in BIM-driven workflows using Revit for coordinated model development, technical documentation, and multidisciplinary integration. Experienced in ISO 19650 information management, 4D/5D BIM processes, and delivering technically compliant solutions in fast-paced environments.",
     "image": "assets/images/Rania_Image.jpeg",
-    "cv": "https://drive.google.com/file/d/12mFYfkO45W7TILQLIhmB8q187UtopSSM/view?usp=sharing",
+    "cv": "https://drive.google.com/file/d/1EnR_DRL4H72UDBg5BqdLdVTHlQVXf4fu/view?usp=sharing",
     "github": "",
     "linkedin": "https://www.linkedin.com/in/rania-abdelbary-718b85342",
     "email": "ranianasr609@gmail.com",
@@ -20,7 +20,7 @@
       "icon": "briefcase"
     },
     {
-      "title": "4+",
+      "title": "8+",
       "subtitle": "Major Projects",
       "icon": "building"
     },
@@ -243,6 +243,12 @@
   ],
   "certificates": [
     {
+      "title": "Architectural BIM Diploma",
+      "platform": "KAITECH Academy",
+      "date": "",
+      "icon": "graduationCap"
+    },
+    {
       "title": "Revit Architecture Course",
       "platform": "Jelecom",
       "date": "2018",
@@ -259,12 +265,6 @@
       "platform": "",
       "date": "2018",
       "icon": "leaf"
-    },
-    {
-      "title": "Architectural BIM Diploma",
-      "platform": "KAITECH Academy",
-      "date": "",
-      "icon": "graduationCap"
     }
   ],
   "expertise": [
